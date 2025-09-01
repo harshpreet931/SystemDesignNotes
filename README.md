@@ -14,11 +14,10 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 5**: -
 - **Episode 6**: -
 - So on...
-- 
 
 ## Episode 1: System Design Fundamentals
 
-**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/01-fundamentals/)**
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/01-fundamentals/) | [View Presentation](./episodes/01-fundamentals/presentation/)**
 
 ### What You'll Learn:
 - What is System Design and why it matters
