@@ -1,0 +1,58 @@
+MIT License
+
+Copyright (c) 2025 harshpreet931
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Additional Terms for Educational Content
+
+This project contains educational materials that are intended to help developers
+learn system design concepts. The following additional terms apply:
+
+### Educational Use
+- Content may be used for educational purposes without restriction
+- Attribution is appreciated but not required for educational use
+- Derivative educational works are encouraged and welcomed
+
+### Commercial Use
+- Commercial use of the educational content is permitted under the MIT license
+- If you create paid courses or materials based on this content, we'd appreciate
+  a mention or link back to this repository
+- Revenue sharing with contributors is encouraged for commercial derivatives
+
+### Community Contributions
+- All contributors retain their individual copyrights to their contributions
+- By contributing, you grant the project a license to use your contribution
+  under the terms of this MIT license
+- You may also license your contributions under additional terms if desired
+
+### Attribution Examples
+
+For educational use:
+"Based on materials from ThatNotesGuy"
+
+For commercial use:
+"Adapted from the open-source System Design course 
+available at https://github.com/harshpreet931/SystemDesignNotes"
+
+For academic use:
+Singh, H. et al. (2025). System Design. 
+GitHub. https://github.com/harshpreet931/SystemDesignNotes
