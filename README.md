@@ -8,7 +8,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 
 ## **Episodes**
 - **Episode 1**: [System Design Fundamentals](./episodes/01-fundamentals/) ✓
-- **Episode 2**: [Monolith vs Microservices](./episodes/02-monolith-microservices/) In-Progress
+- **Episode 2**: [Monolith vs Microservices](./episodes/02-monolith-microservices/) ✓
 - **Episode 3**: -
 - **Episode 4**: -
 - **Episode 5**: -
