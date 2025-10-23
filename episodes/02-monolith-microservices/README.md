@@ -16,23 +16,6 @@ By the end of this episode, you'll understand:
 
 ---
 
-## Episode Timeline & Key Topics
-
-| Timestamp | Topic | Key Points |
-|-----------|-------|------------|
-| **00:00-00:16** | Introduction | Overview of monoliths vs microservices comparison |
-| **00:16-01:00** | Monolith Definition | Department store analogy, single codebase concept |
-| **01:00-01:48** | Monolith Advantages | Simple development, performance, debugging, operational simplicity |
-| **01:48-02:55** | Netflix Case Study | Original monolithic architecture (1997-late 2000s), migration challenges |
-| **02:55-03:40** | Monolith Disadvantages | Scalability issues, technology limitations, reliability risks |
-| **03:40-04:30** | Microservices Definition | Shopping mall analogy, independent services concept |
-| **04:30-05:31** | Microservices Advantages | Independent scaling, technology diversity, fault isolation |
-| **05:31-06:20** | Uber Case Study | Real-world microservices implementation and architecture |
-| **06:20-06:50** | Microservices Disadvantages | Distributed complexity, operational overhead, testing challenges |
-| **06:50-07:00** | Decision Framework | When to choose each approach |
-
----
-
 ## Monolithic Architecture
 
 ### Definition

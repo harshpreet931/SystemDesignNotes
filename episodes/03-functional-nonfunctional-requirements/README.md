@@ -17,22 +17,6 @@ By the end of this episode, you'll understand:
 
 ---
 
-## Episode Timeline & Key Topics
-
-| Timestamp | Topic | Key Points |
-|-----------|-------|------------|
-| **00:00-00:16** | Introduction | Overview of functional vs non-functional requirements |
-| **00:16-00:54** | What Are Requirements? | Definition, recipe analogy, importance of getting them right |
-| **00:54-01:48** | Functional Requirements Overview | Definition as "what" the system does, user-centric features |
-| **01:48-03:10** | Functional Examples | E-commerce and online bookstore functional requirements |
-| **03:10-04:30** | Non-Functional Requirements Overview | Definition as "how well" the system performs |
-| **04:30-05:20** | Non-Functional Categories | Performance, scalability, availability, security, usability |
-| **05:20-06:30** | Bookstore Non-Functional Examples | Specific metrics and constraints for performance, security |
-| **06:30-06:50** | Requirements Elicitation | Where requirements come from, stakeholder engagement |
-| **06:50-07:00** | Summary | Key distinctions and importance of both requirement types |
-
----
-
 ## What Are Requirements?
 
 Think of requirements as a **detailed recipe for cooking**. Just as a chef needs precise instructions about ingredients, quantities, and cooking methods, software engineers need clear specifications about what to build and how it should behave.

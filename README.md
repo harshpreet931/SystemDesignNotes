@@ -10,8 +10,8 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 1**: [System Design Fundamentals](./episodes/01-fundamentals/) ✓
 - **Episode 2**: [Monolith vs Microservices](./episodes/02-monolith-microservices/) ✓
 - **Episode 3**: [Functional vs Non-Functional Requirements](./episodes/03-functional-nonfunctional-requirements/) ✓
-- **Episode 4**: -
-- **Episode 5**: -
+- **Episode 4**: [Horizontal vs Vertical Scaling](./episodes/04-horizontal-vertical-scaling/) ✓
+- **Episode 5**: [Stateless vs Stateful Systems](./episodes/05-stateless-stateful-systems/) ✓
 - **Episode 6**: -
 - So on...
 
@@ -92,6 +92,70 @@ Requirements = Foundation of System Design
     ├── Usability: User experience, accessibility
     ├── Maintainability: Code quality, integration time
     └── Portability: Cross-platform, deployment flexibility
+```
+
+## Episode 4: Horizontal vs Vertical Scaling
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/04-horizontal-vertical-scaling/)**
+
+### What You'll Learn:
+- What scalability means across three dimensions (load, data, compute)
+- Vertical scaling: Making one machine more powerful
+- Horizontal scaling: Distributed systems engineering
+- Real-world examples: Netflix's evolution and AWS instances
+- Decision matrix and practical frameworks for choosing the right approach
+- Monitoring, metrics, and autoscaling strategies
+
+### Key Concepts Covered:
+```
+Scaling Strategies Comparison
+├── Vertical Scaling (Scale Up)
+│   ├── Upgrade CPU, RAM, Storage on single machine
+│   ├── AWS Example: r6i.large → r6i.24xlarge (48x power)
+│   ├── Advantages: Simple, no code changes, ACID consistency
+│   └── Challenges: Physical limits, single point of failure, cost
+├── Horizontal Scaling (Scale Out)
+│   ├── Add more servers, distribute load
+│   ├── Requires: Stateless architecture, load balancers
+│   ├── Advantages: Unlimited scale, fault tolerance, flexibility
+│   └── Challenges: CAP theorem, network latency, complexity
+└── Hybrid Approach (Best of Both)
+    ├── Vertical for databases, horizontal for app servers
+    ├── Netflix: 1000+ microservices, 300M+ users
+    └── Autoscaling: Reactive, predictive, serverless
+```
+
+## Episode 5: Stateless vs Stateful Systems
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/05-stateless-stateful-systems/)**
+
+### What You'll Learn:
+- What "state" means in software systems (memory and session data)
+- Stateless systems: Vending machine analogy and REST APIs
+- Stateful systems: Bank teller analogy and session management
+- Hybrid architecture: Stateless app tier + external state stores
+- Real-world examples: Netflix, Amazon, and WhatsApp architectures
+- Decision framework for choosing the right approach
+
+### Key Concepts Covered:
+```
+State Management Strategies
+├── Stateless Systems (Amnesia Design)
+│   ├── No server memory between requests
+│   ├── Every request includes full context (tokens, auth)
+│   ├── Advantages: Perfect clones, easy scaling, fault tolerance
+│   └── Challenges: Chattier requests, external state needed
+├── Stateful Systems (Memory Design)
+│   ├── Server remembers session context
+│   ├── Requires: Sticky sessions, session storage
+│   ├── Advantages: Efficient, fast (in-memory), simple client
+│   └── Challenges: Sticky sessions, fragile, scaling hard
+└── Hybrid Architecture (Modern Approach)
+    ├── Stateless application servers
+    ├── Centralized state in Redis/DynamoDB/Cassandra
+    ├── Netflix: Stateless microservices + Cassandra
+    ├── Amazon: Stateless servers + DynamoDB carts
+    └── WhatsApp: Stateful connections for real-time (2B users)
 ```
 
 ## Contributing
