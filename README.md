@@ -12,7 +12,8 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 3**: [Functional vs Non-Functional Requirements](./episodes/03-functional-nonfunctional-requirements/) ✓
 - **Episode 4**: [Horizontal vs Vertical Scaling](./episodes/04-horizontal-vertical-scaling/) ✓
 - **Episode 5**: [Stateless vs Stateful Systems](./episodes/05-stateless-stateful-systems/) ✓
-- **Episode 6**: -
+- **Episode 6**: [Load Balancing](./episodes/06-load-balancing/) ✓
+- **Episode 7**: -
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -156,6 +157,52 @@ State Management Strategies
     ├── Netflix: Stateless microservices + Cassandra
     ├── Amazon: Stateless servers + DynamoDB carts
     └── WhatsApp: Stateful connections for real-time (2B users)
+```
+
+## Episode 6: Load Balancing
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/06-load-balancing/)**
+
+### What You'll Learn:
+- What load balancing is and its critical role in distributed systems
+- Primary objectives: Scalability and High Availability
+- 9 load balancing algorithms and when to use each
+- Health monitoring: L4 (TCP) vs L7 (HTTP) checks
+- Session persistence strategies (IP Hash vs Cookie-Based)
+- Real-world example: Netflix's multi-layer architecture
+- Load balancer types: Hardware, Software, and Cloud
+- L4 vs L7 load balancing and their trade-offs
+
+### Key Concepts Covered:
+```
+Load Balancing Strategies
+├── Primary Objectives
+│   ├── Scalability: Horizontal scaling with commodity servers
+│   └── High Availability: 99.99% uptime, health checks, failover
+├── Load Balancing Algorithms (9 total)
+│   ├── Round Robin: Simple, zero overhead, default
+│   ├── Weighted Round Robin: Heterogeneous hardware capacity
+│   ├── Least Connections: Dynamic, state-aware
+│   ├── Weighted Least Connections: Best of both worlds
+│   ├── Least Response Time: Latency + connections
+│   ├── Resource-Based: CPU/memory monitoring with agents
+│   ├── Geographic (GSLB): DNS-based, multi-region
+│   ├── IP Hash: Sticky sessions (L4)
+│   └── Cookie-Based: Sticky sessions (L7)
+├── Session Persistence
+│   ├── IP Hash: Simple but NAT/proxy issues
+│   └── Cookie-Based: Robust L7 solution
+├── Real-World Architecture
+│   ├── Netflix: GSLB → AWS ELB → Zuul → Microservices
+│   ├── 300M subscribers, 1000+ microservices
+│   └── Path-based routing (/play, /browse)
+├── Load Balancer Types
+│   ├── Hardware: F5 BIG-IP, specialized silicon
+│   ├── Software: HAProxy, NGINX (flexible, cheap)
+│   └── Cloud: AWS ALB/NLB (managed, auto-scaling)
+└── L4 vs L7 Load Balancing
+    ├── L4: IP/port level, fast (<1ms), simple
+    └── L7: Content-based routing, SSL termination, microservices
 ```
 
 ## Contributing
