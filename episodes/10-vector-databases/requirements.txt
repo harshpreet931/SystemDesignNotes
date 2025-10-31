@@ -1,0 +1,5 @@
+chromadb
+sentence-transformers 
+transformers
+numpy<2.0
+accelerate
