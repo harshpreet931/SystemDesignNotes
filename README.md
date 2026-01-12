@@ -13,7 +13,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 4**: [Horizontal vs Vertical Scaling](./episodes/04-horizontal-vertical-scaling/) ✓
 - **Episode 5**: [Stateless vs Stateful Systems](./episodes/05-stateless-stateful-systems/) ✓
 - **Episode 6**: [Load Balancing](./episodes/06-load-balancing/) ✓
-- **Episode 7**: -
+- **Episode 7**: [Caching](./episodes/07-caching/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -203,6 +203,53 @@ Load Balancing Strategies
 └── L4 vs L7 Load Balancing
     ├── L4: IP/port level, fast (<1ms), simple
     └── L7: Content-based routing, SSL termination, microservices
+```
+
+## Episode 7: Caching
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/07-caching/) | [View Presentation](./episodes/07-caching/presentation/)**
+
+### What You'll Learn:
+- What caching is and why it's fundamental to high-performance systems
+- The benefits: reduced latency, increased throughput, lower costs
+- Client-side vs. server-side caching strategies
+- CDN caching for global content delivery
+- Application-level caching with Redis and Memcached
+- Database caching mechanisms
+- Cache eviction policies: LRU, LFU, FIFO
+- Cache invalidation strategies: TTL, Write-Through, Write-Behind
+- The Thundering Herd problem and mitigation strategies
+- Real-world case studies: Facebook, Netflix, and Amazon
+
+### Key Concepts Covered:
+```
+Caching = Smart Memory for Faster Systems
+├── Core Benefits
+│   ├── 10-100x faster response times
+│   ├── 50-90% reduction in database queries
+│   └── Lower infrastructure costs
+├── Caching Locations
+│   ├── Client-Side: Browser cache, DNS cache, mobile storage
+│   ├── CDN Caching: Edge locations globally
+│   ├── Application Cache: Redis, Memcached, local memory
+│   └── Database Cache: Buffer pool, query result cache
+├── Eviction Policies (decide what to remove)
+│   ├── LRU: Least Recently Used (most common)
+│   ├── LFU: Least Frequently Used
+│   └── FIFO: First In, First Out
+├── Invalidation Strategies (keep data fresh)
+│   ├── Write-Through: Write both cache and DB
+│   ├── Write-Behind: Async writes to DB
+│   ├── TTL: Time-based automatic expiration
+│   └── Active: Explicit invalidation on updates
+├── Design Patterns
+│   ├── Cache-Aside: Application manages cache
+│   ├── Read-Through: Cache loads itself on miss
+│   └── Refresh-Ahead: Proactive refresh
+└── Real-World Case Studies
+    ├── Facebook: Multi-level caching with Memcached + Tao
+    ├── Netflix: Cache everything, cache everywhere (EVCache)
+    └── Amazon: DAX for microsecond DynamoDB reads
 ```
 
 ## Contributing
