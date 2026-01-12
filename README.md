@@ -21,6 +21,11 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 12**: [Normalization vs Denormalization](./episodes/12-normalization-denormalization/) ✓
 - **Episode 13**: [Database Indexing Mastery](./episodes/13-indexing/) ✓
 - **Episode 14**: [Sharding & Partitioning](./episodes/14-sharding-partitioning/) ✓
+- **Episode 15**: [Database Transactions & ACID](./episodes/15-database-transactions/) ✓
+- **Episode 16**: [CAP Theorem is Not Enough](./episodes/16-cap-theorem/) ✓
+- **Episode 17**: [OSI Model Deep Dive](./episodes/17-osi-model/) ✓
+- **Episode 18**: [TCP vs UDP - The Complete Engineering Deep Dive](./episodes/18-tcp-udp/) ✓
+- **Episode 19**: [REST vs gRPC - The Complete Architecture Masterclass](./episodes/19-rest-grpc/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -573,6 +578,249 @@ Scaling Databases: Distribution Strategies
     ├── Vitess: MySQL sharding middleware (YouTube)
     ├── CockroachDB: Automatic distributed SQL
     └── MongoDB: Document database sharding
+```
+
+## Episode 15: Database Replication & Leader Election
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/15-replication-leader-election/) | [View Presentation](./episodes/15-replication-leader-election/presentation/)**
+
+### What You'll Learn:
+- Database replication: Master-Slave patterns, binary logs, and GTIDs
+- Synchronous vs asynchronous replication trade-offs
+- Practical MySQL/MariaDB replication setup
+- Leader election: Bully, Ring, Raft, and Paxos algorithms
+- Distributed locking with leases and heartbeats
+- Split brain prevention and fencing tokens
+- Sharding to scale beyond single-master limitations
+
+### Key Concepts Covered:
+```
+Distributed Coordination: Replication and Consensus
+├── Replication Fundamentals
+│   ├── Master-Slave: Single writer, multiple readers
+│   ├── Binary Logs (MySQL) vs WAL (PostgreSQL)
+│   ├── GTIDs for position tracking
+│   └── Cascading replication
+├── Consistency Trade-offs
+│   ├── Synchronous: Strong consistency, high latency
+│   ├── Asynchronous: High performance, eventual consistency
+│   └── Semi-Synchronous: Hybrid approach
+├── Leader Election
+│   ├── Bully Algorithm: Highest ID wins
+│   ├── Ring Algorithm: Ring topology messaging
+│   └── Raft: Leader, Follower, Candidate states
+├── Consensus Protocols
+│   ├── Raft: Terms, heartbeats, log replication
+│   ├── Paxos: Prepare and Accept phases
+│   └── Real-world: etcd, Consul, Spanner
+├── Distributed Coordination
+│   ├── ZooKeeper: ZAB protocol, ephemeral znodes
+│   ├── etcd: Strong consistency, Kubernetes backbone
+│   ├── Consul: Service discovery, KV store
+│   └── Cloud primitives: Azure Blob leases, DynamoDB Lock
+├── Failure Scenarios
+│   ├── Split brain: Dual leader prevention
+│   ├── Fencing tokens for safe leader handoff
+│   └── Idempotency for duplicate handling
+└── Scaling Patterns
+    ├── Sharding: Partitioning across masters
+    └── Multi-shard operations and rebalancing
+```
+
+## Episode 16: CAP Theorem is Not Enough - The Truth About Distributed Systems
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/16-cap-theorem/) | [View Presentation](./episodes/16-cap-theorem/presentation/)**
+
+### What You'll Learn:
+- The real meaning of CAP theorem and why "Pick Two" is misleading
+- Why CA systems do not actually exist in distributed computing
+- The critical difference between CAP Consistency and ACID Consistency
+- How to use the PACELC framework for real-world system design
+- How to classify databases as PA/EL vs PC/EC
+- Practical decision framework for choosing the right consistency model
+
+### Key Concepts Covered:
+```
+Distributed Consistency Trade-offs
+├── CAP Theorem Fundamentals
+│   ├── Consistency: Linearizability (everyone sees same data)
+│   ├── Availability: Every request gets response
+│   ├── Partition Tolerance: Non-negotiable in distributed systems
+│   └── Reality: CA systems don't exist (P is mandatory)
+├── The CAP Blind Spot
+│   ├── Partitions are rare (1% of time)
+│   ├── CAP says nothing about normal operations
+│   └── Missing metric: Latency
+├── PACELC Framework
+│   ├── PAC: If Partition, choose Availability or Consistency
+│   ├── ELC: Else (no partition), choose Latency or Consistency
+│   └── Daniel Abadi (Yale), 2010
+├── Database Classifications
+│   ├── PA/EL: DynamoDB, Cassandra (Availability + Low Latency)
+│   ├── PC/EC: BigTable, HBase, Spanner (Consistency + Consistency)
+│   └── Tunable: Cosmos DB, MongoDB (adjustable per query)
+└── Practical Decision Framework
+    ├── Money involved? -> PC/EC (accuracy critical)
+    ├── Speed is product? -> PA/EL (availability critical)
+    └── Global distribution? -> Expect partitions
+```
+
+## Episode 17: The OSI Model
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/17-osi-model/) | [View Presentation](./episodes/17-osi-model/presentation/)**
+
+### What You'll Learn:
+- The 7 layers of the OSI model and their specific responsibilities
+- How data flows through the network stack (encapsulation and decapsulation)
+- The role of each layer in real-world protocols (Ethernet, IP, TCP, HTTP)
+- How troubleshooting tools like ping, traceroute, and Wireshark map to layers
+- Common misconceptions about the OSI model in modern networking
+- How the TCP/IP model maps to the OSI model
+
+### Key Concepts Covered:
+```
+OSI Model Fundamentals
+├── 7 Layers Overview
+│   ├── Physical (Layer 1): Bits, cables, signals
+│   ├── Data Link (Layer 2): Frames, MAC addresses, switches
+│   ├── Network (Layer 3): Packets, IP addresses, routers
+│   ├── Transport (Layer 4): Segments, TCP/UDP, end-to-end
+│   ├── Session (Layer 5): Connections, auth, sync
+│   ├── Presentation (Layer 6): Format, encryption, compression
+│   └── Application (Layer 7): HTTP, DNS, user protocols
+├── Encapsulation Process
+│   ├── Data: Application message
+│   ├── Segment: Transport header (TCP/UDP)
+│   ├── Packet: Network header (IP)
+│   ├── Frame: Data Link header + trailer (Ethernet)
+│   └── Bits: Physical transmission
+├── Protocol Mapping
+│   ├── Layer 7: HTTP, DNS, SMTP, FTP
+│   ├── Layer 6: SSL/TLS, JPEG, ASCII
+│   ├── Layer 5: RPC, SQL sessions
+│   ├── Layer 4: TCP, UDP
+│   ├── Layer 3: IP, ICMP, ARP
+│   ├── Layer 2: Ethernet, MAC, Switch
+│   └── Layer 1: Cables, Hubs, Signals
+└── Modern Relevance
+    ├── OSI as troubleshooting framework
+    ├── TCP/IP as practical implementation
+    ├── Why layers still matter
+    └── Network virtualization and SDN
+```
+
+## Episode 18: TCP vs UDP
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/18-tcp-udp/) | [View Presentation](./episodes/18-tcp-udp/presentation/)**
+
+### What You'll Learn:
+- How TCP and UDP operate at the Transport Layer (Layer 4)
+- The fundamental differences between connection-oriented and connectionless protocols
+- TCP's reliability mechanisms: handshakes, sequencing, acknowledgments, and retransmissions
+- UDP's minimalist design and why it excels in real-time scenarios
+- The Head-of-Line Blocking problem and its impact on performance
+- How QUIC and HTTP/3 leverage UDP for modern web performance
+- Practical decision frameworks for choosing the right protocol
+
+### Key Concepts Covered:
+```
+Transport Layer Protocols: TCP vs UDP
+├── TCP Fundamentals
+│   ├── Connection-oriented: 3-way handshake
+│   ├── Reliable: ACKs, retransmissions
+│   ├── Ordered: Guaranteed packet sequencing
+│   ├── Flow control: Sliding window
+│   └── Congestion control: Adapts to network
+├── UDP Fundamentals
+│   ├── Connectionless: No handshake
+│   ├── Fast: Minimal 8-byte header
+│   ├── Stateless: No connection tracking
+│   └── Best-effort: No guarantees
+├── Key Differences
+│   ├── Overhead: TCP 20-60 bytes vs UDP 8 bytes
+│   ├── Latency: TCP handshake cost vs UDP immediate
+│   ├── Ordering: TCP blocks vs UDP independent
+│   └── Use cases: TCP web/email vs UDP gaming/streaming
+├── Head-of-Line Blocking
+│   ├── TCP: Lost packet 1 blocks 2, 3, 4
+│   ├── Impact: Jitter in real-time apps
+│   └── Solution: QUIC per-stream reliability
+├── Modern Evolution
+│   ├── QUIC: Reliability on UDP (HTTP/3)
+│   ├── Benefits: 0-RTT, no HoL blocking
+│   ├── Migration: Survives WiFi to 5G
+│   └── Adoption: 30%+ of web traffic
+└── Decision Framework
+    ├── TCP: Web, email, files (reliability first)
+    ├── UDP: Gaming, VoIP, streaming (speed first)
+    └── QUIC: Best of both worlds
+```
+
+## Episode 19: REST vs gRPC
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/19-rest-grpc/) | [View Presentation](./episodes/19-rest-grpc/presentation/)**
+
+### What You'll Learn:
+- What RPC (Remote Procedure Call) is and how it enables distributed communication
+- The definition and constraints of REST as an architectural style
+- The Richardson Maturity Model and HATEOAS principles
+- What gRPC is and why Google open-sourced it in 2015
+- Protocol Buffers (Protobuf) as a binary serialization format
+- HTTP/2 vs HTTP/1.1 and the performance implications
+- The four types of gRPC: Unary, Server Streaming, Client Streaming, Bidirectional
+- When to choose REST vs gRPC based on your use case
+- Load balancing complexities with both approaches
+- Real-world code examples for both paradigms
+
+### Key Concepts Covered:
+```
+Communication Patterns: REST vs gRPC
+├── RPC Foundation
+│   ├── Remote Procedure Call: Execute code on remote machine
+│   ├── Client Stub: Proxy that hides network complexity
+│   ├── Marshalling: Serializing parameters
+│   └── Network Transparency: Looks like local function call
+├── REST Architecture
+│   ├── Roy Fielding (2000), architectural style, NOT protocol
+│   ├── Constraints: Stateless, Cacheable, Uniform Interface
+│   ├── Everything is a Resource (identified by URI)
+│   ├── HTTP Methods: GET, POST, PUT, PATCH, DELETE
+│   └── Richardson Maturity Model: Levels 0-3 (HATEOAS)
+├── gRPC Framework
+│   ├── Google (2015), part of CNCF
+│   ├── HTTP/2 for transport (multiplexing, binary)
+│   ├── Protocol Buffers for serialization (binary, efficient)
+│   ├── Contract-First: Define .proto before coding
+│   └── Four RPC Types: Unary, Server, Client, Bidirectional
+├── Performance Comparison
+│   ├── Payload: Protobuf 50-70% smaller than JSON
+│   ├── Speed: Protobuf 3-10x faster parsing
+│   ├── Latency: HTTP/2 multiplexing reduces overhead
+│   └── Winner: gRPC 7-10x faster for internal services
+├── Protocol Buffers
+│   ├── Binary serialization, not human-readable
+│   ├── Field tags (1, 2, 3...) identify fields
+│   ├── Single source of truth in .proto files
+│   └── Schema evolution support
+├── HTTP/2 Advantages
+│   ├── Multiplexing: Multiple streams over single TCP
+│   ├── Header Compression (HPACK)
+│   ├── Binary framing (not text)
+│   └── Bidirectional communication
+├── gRPC RPC Types
+│   ├── Unary: Simple request/response (like REST)
+│   ├── Server Streaming: Request, stream responses
+│   ├── Client Streaming: Stream requests, single response
+│   └── Bidirectional: Both sides stream independently
+├── Decision Framework
+│   ├── REST: Browser clients, public APIs, simple CRUD
+│   ├── gRPC: Internal services, polyglot, streaming, low latency
+│   ├── Flowchart: Browser? -> REST | Latency critical? -> gRPC
+└── Challenges
+    ├── REST: Universally supported, easy debugging
+    ├── gRPC: Browser support requires proxy (gRPC-Web)
+    ├── Load Balancing: gRPC needs L7, HTTP/2 persistent connections
+    └── Debugging: gRPC requires deserialization tools
 ```
 
 ## Contributing
