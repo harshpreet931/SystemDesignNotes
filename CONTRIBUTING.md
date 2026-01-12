@@ -1,4 +1,4 @@
-# Contributing to System Design Mastery
+# Contributing to System Design Course
 
 Thank you for your interest in contributing to this project! This is a community-driven course, and we welcome contributions from developers of all skill levels. 
 
