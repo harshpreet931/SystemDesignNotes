@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![SD_README_LOGO](./assets/sd_readme_logo.png)
+
 > **"What separates your weekend project from Netflix or Uber? It's not just more servers or code, it's the blueprint. It's system design. : )"**
 
 Welcome to the most comprehensive, hands on system design course that takes you from zero to hero!
