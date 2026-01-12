@@ -297,6 +297,6 @@ By contributing, you agree that your contributions will be licensed under the sa
 
 Whether you're fixing a typo or designing a new episode, you're helping thousands of developers learn system design. Thank you for being part of this community!
 
-[Join Discord](https://discord.gg/your-server) • [Watch Videos](http://youtube.com/@ThatNotesGuy) • [Follow Updates](https://twitter.com/yourhandle)
+Watch Videos](http://youtube.com/@ThatNotesGuy)
 
 </div>
