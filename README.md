@@ -14,6 +14,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 5**: [Stateless vs Stateful Systems](./episodes/05-stateless-stateful-systems/) ✓
 - **Episode 6**: [Load Balancing](./episodes/06-load-balancing/) ✓
 - **Episode 7**: [Caching](./episodes/07-caching/) ✓
+- **Episode 8**: [CDNs Explained](./episodes/08-cdns/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -250,6 +251,59 @@ Caching = Smart Memory for Faster Systems
     ├── Facebook: Multi-level caching with Memcached + Tao
     ├── Netflix: Cache everything, cache everywhere (EVCache)
     └── Amazon: DAX for microsecond DynamoDB reads
+```
+
+## Episode 8: CDNs Explained
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/08-cdns/) | [View Presentation](./episodes/08-cdns/presentation/)**
+
+### What You'll Learn:
+- What a Content Delivery Network (CDN) is and its core purpose
+- How CDNs solve the latency problem caused by geographic distance
+- The CDN workflow: Cache hits, cache misses, and origin fetching
+- The key benefits: Performance, availability, security, and cost savings
+- What content is ideal for CDN caching (static vs dynamic)
+- Cache control mechanisms: Headers, purging, and versioning
+- How to choose a CDN provider based on features and pricing
+- Real-world case studies: Netflix Open Connect, Facebook's infrastructure
+- Edge computing concepts and modern CDN capabilities
+
+### Key Concepts Covered:
+```
+CDN = Global Network for Fast Content Delivery
+├── Core Concept
+│   ├── Edge Servers / PoPs (Points of Presence)
+│   ├── Geographic Distribution (global network)
+│   └── Content Caching at the Edge
+├── The Distance Problem
+│   ├── Latency increases with distance
+│   ├── Tokyo user from NYC: ~180ms without CDN
+│   └── Tokyo user with CDN: ~5ms (36x faster!)
+├── How CDNs Work
+│   ├── DNS-based routing to nearest edge
+│   ├── Cache HIT: Serve from edge (1-5ms)
+│   ├── Cache MISS: Fetch from origin, cache, serve
+│   └── TTL-based expiration with revalidation
+├── Key Benefits
+│   ├── Performance: 50-90% latency reduction
+│   ├── Availability: Redundancy, fail-over
+│   ├── Security: DDoS protection, WAF
+│   └── Cost: 80% bandwidth savings
+├── What to Cache
+│   ├── Static Assets (Images, CSS, JS, Fonts)
+│   ├── Videos (MP4, HLS, DASH streaming)
+│   └── Dynamic Content (with care!)
+├── Cache Control
+│   ├── Cache-Control headers (max-age, public/private)
+│   ├── ETags for conditional requests (304 Not Modified)
+│   ├── Manual Purging (API or dashboard)
+│   └── Filename Versioning (best practice)
+└── Popular Providers
+    ├── Cloudflare: Free tier, security included
+    ├── AWS CloudFront: Deep AWS integration
+    ├── Akamai: Enterprise scale (365K+ servers)
+    ├── Fastly: Real-time purging, developer focus
+    └── Google Cloud CDN: GCP ecosystem
 ```
 
 ## Contributing
