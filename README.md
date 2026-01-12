@@ -19,6 +19,8 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 10**: [Vector Databases](./episodes/10-vector-databases/) ✓
 - **Episode 11**: [Keys in DBMS](./episodes/11-keys-in-dbms/) ✓
 - **Episode 12**: [Normalization vs Denormalization](./episodes/12-normalization-denormalization/) ✓
+- **Episode 13**: [Database Indexing Mastery](./episodes/13-indexing/) ✓
+- **Episode 14**: [Sharding & Partitioning](./episodes/14-sharding-partitioning/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -479,6 +481,98 @@ Database Design: Structure vs Performance
     ├── Normalize for: OLTP, data integrity, write-heavy
     ├── Denormalize for: OLAP, read-heavy, analytics
     └── Hybrid: Normalized source + denormalized views
+```
+
+## Episode 13: Database Indexing Mastery
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/13-indexing/) | [View Presentation](./episodes/13-indexing/presentation/)**
+
+### What You'll Learn:
+- What database indexes are and why they are critical for performance
+- B-Tree and B+Tree data structures that power most database indexes
+- The difference between clustered and non-clustered indexes
+- How composite indexes work and the leftmost prefix rule
+- What covering indexes are and when to use them
+- Different index types: Hash, Bitmap, Full-Text, and PostgreSQL-specific indexes
+- How to read and interpret execution plans with EXPLAIN
+- Index maintenance: fragmentation, VACUUM, and fill factors
+- Best practices for index design and avoiding common anti-patterns
+
+### Key Concepts Covered:
+```
+Database Indexing Fundamentals
+├── Index Basics
+│   ├── B-Tree/B+Tree: Self-balancing tree data structure
+│   ├── Trade-offs: Speed up reads, slow down writes
+│   └── Cost: 20-30% storage overhead per index
+├── Index Types
+│   ├── Clustered: Data physically sorted, one per table
+│   ├── Non-Clustered: Separate structure with row pointers
+│   ├── Composite: Multiple columns, leftmost prefix rule
+│   └── Covering: Query satisfied entirely from index
+├── Advanced Index Types
+│   ├── Hash: O(1) equality lookups, no range support
+│   ├── Bitmap: Low-cardinality, data warehousing
+│   ├── Full-Text: Inverted index for text search
+│   └── PostgreSQL: GiST, GIN, BRIN specialized indexes
+├── Index Design
+│   ├── Selectivity: Higher is better (> 20% ideal)
+│   ├── Column Order: Equality first, range last
+│   ├── Functional Indexes: Index on expressions
+│   └── Partial Indexes: Filtered conditions
+├── Execution Plans
+│   ├── EXPLAIN: Read query execution strategy
+│   ├── Seq Scan: Full table scan (warning sign!)
+│   ├── Index Scan: Index used + table lookup
+│   └── Index Only Scan: Fastest (covering index)
+└── Maintenance
+    ├── Fragmentation: Internal and external
+    ├── VACUUM: Reclaim space, update statistics
+    ├── FILLFACTOR: Balance storage vs updates
+    └── Monitoring: pg_stat_user_indexes usage stats
+```
+
+## Episode 14: Sharding & Partitioning
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/14-sharding-partitioning/) | [View Presentation](./episodes/14-sharding-partitioning/presentation/)**
+
+### What You'll Learn:
+- The critical distinction between partitioning and sharding
+- Types of partitions: Range, List, Hash, and Composite
+- How to select optimal shard keys (cardinality, uniformity, query alignment)
+- Directory-based sharding and lookup strategies
+- Cross-shard operations: transactions, joins, and aggregations
+- Resharding strategies and zero-downtime migrations
+- Real-world sharding patterns from Vitess, CockroachDB, and MongoDB
+
+### Key Concepts Covered:
+```
+Scaling Databases: Distribution Strategies
+├── Sharding vs Partitioning
+│   ├── Partitioning: Splitting within ONE server/cluster
+│   ├── Sharding: Splitting ACROSS multiple servers/nodes
+│   └── Shared-Nothing Architecture
+├── Partition Types
+│   ├── Range: Consecutive ranges (dates, numeric)
+│   ├── List: Specific values (regions, categories)
+│   ├── Hash: Uniform distribution via hash function
+│   └── Composite: Range-Hash, Range-List combinations
+├── Shard Key Selection
+│   ├── Cardinality: High cardinality required
+│   ├── Uniformity: Even data and access distribution
+│   └── Query Alignment: Target single shard when possible
+├── Cross-Shard Operations
+│   ├── Transactions: Two-Phase Commit (2PC)
+│   ├── Joins: Data colocation vs scatter-gather
+│   └── Aggregations: MapReduce-style distributed queries
+├── Resharding
+│   ├── Triggers: Growth, hotspots, capacity planning
+│   ├── Strategies: Split vs Migrate approaches
+│   └── Zero-Downtime: Dual-write, blue-green deployment
+└── Platforms
+    ├── Vitess: MySQL sharding middleware (YouTube)
+    ├── CockroachDB: Automatic distributed SQL
+    └── MongoDB: Document database sharding
 ```
 
 ## Contributing
