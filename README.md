@@ -16,6 +16,8 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 7**: [Caching](./episodes/07-caching/) ✓
 - **Episode 8**: [CDNs Explained](./episodes/08-cdns/) ✓
 - **Episode 9**: [Databases Guide](./episodes/09-databases/) ✓
+- **Episode 10**: [Vector Databases](./episodes/10-vector-databases/) ✓
+- **Episode 11**: [Keys in DBMS](./episodes/11-keys-in-dbms/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -351,6 +353,91 @@ Database Types Overview
     ├── Use multiple databases for different needs
     ├── Example: PostgreSQL (orders) + MongoDB (catalog) + Redis (cache)
     └── Modern approach: Choose right tool for each job
+```
+
+## Episode 10: Vector Databases
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/10-vector-databases/) | [View Presentation](./episodes/10-vector-databases/presentation/)**
+
+### What You'll Learn:
+- What vector embeddings are and why they matter
+- How vector databases differ from traditional databases
+- Approximate Nearest Neighbor (ANN) search algorithms
+- Core use cases: semantic search, recommendations, RAG
+- Popular vector databases: Pinecone, Weaviate, Milvus, Qdrant
+- Embedding generation and model selection
+- Hybrid search: combining vectors with metadata
+- Performance considerations: HNSW, quantization, filtering
+
+### Key Concepts Covered:
+```
+Vector Databases Fundamentals
+├── Vector Embeddings
+│   ├── Numerical representations of meaning
+│   ├── 768-4096 dimensions (model-dependent)
+│   └── Similar meanings → similar vectors
+├── ANN Search Algorithms
+│   ├── HNSW: Fastest for online queries
+│   ├── IVF: Fast build, moderate memory
+│   └── PQ: Compressed storage (80% smaller)
+├── Use Cases
+│   ├── Semantic Search: Meaning-based, not keyword
+│   ├── RAG: Context for LLMs (most common!)
+│   └── Recommendations: Similar items/users
+├── Popular Vector DBs
+│   ├── Pinecone: Managed, easy scaling
+│   ├── Weaviate: Open source, multimodal
+│   ├── Milvus: High scale, flexible
+│   ├── Qdrant: Rust-based, fast, simple
+│   └── Chroma: Lightweight, Python-native
+└── Performance Optimization
+    ├── Index tuning (HNSW m, efConstruction)
+    ├── Quantization (Binary, Scalar, Product)
+    └── Hybrid search (Vector + Metadata filtering)
+```
+
+## Episode 11: Keys in DBMS
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/11-keys-in-dbms/) | [View Presentation](./episodes/11-keys-in-dbms/presentation/)**
+
+### What You'll Learn:
+- The purpose of database keys in ensuring data integrity
+- The difference between Super Keys, Candidate Keys, and Primary Keys
+- How Primary Keys differ from Unique Keys (null handling)
+- The role of Alternate Keys and Composite Keys
+- Foreign Keys and referential integrity
+- Surrogate vs Natural Keys and when to use each
+- Performance implications: indexing Foreign Keys
+- Modern distributed keys: ULIDs and Snowflake IDs
+- Temporal keys for auditing and compliance
+
+### Key Concepts Covered:
+```
+Database Keys Fundamentals
+├── Key Hierarchy
+│   ├── Super Key: Any unique set (may be redundant)
+│   ├── Candidate Key: Minimal unique set (potential PKs)
+│   ├── Primary Key: The chosen one (unique + NOT NULL)
+│   ├── Alternate Key: Backup candidate keys
+│   └── Foreign Key: Links tables, enforces referential integrity
+├── Key Comparison
+│   ├── Primary Key: 1 per table, NO nulls, auto-indexed
+│   ├── Unique Key: Multiple allowed, 1 null typically OK
+│   ├── Foreign Key: Can repeat, nullable, MUST index
+│   └── Composite Key: 2+ columns form unique identifier
+├── Key Types
+│   ├── Natural Key: From business data (SSN, Email)
+│   ├── Surrogate Key: System-generated (Auto-increment, UUID)
+│   └── Temporal Key: Tracks when data was valid (auditing)
+├── Modern Distributed Keys
+│   ├── Snowflake ID: 64-bit, time-sortable, distributed
+│   ├── ULID: Lexicographically sortable, 128-bit
+│   └── Problem: UUIDv4 causes index fragmentation
+└── Best Practices
+    ├── Index all Foreign Keys (prevents slow JOINs)
+    ├── Use Surrogate Keys for volatile data
+    ├── Keep Natural Keys as Unique/Alternate Keys
+    └── Every table needs a Primary Key
 ```
 
 ## Contributing
