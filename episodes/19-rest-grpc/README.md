@@ -2,7 +2,7 @@
 
 [![Watch on YouTube](https://img.shields.io/badge/▶️%20Watch%20on-YouTube-red?style=for-the-badge)](http://youtube.com/@ThatNotesGuy)
 
-## What You'll Learnw
+## What You'll Learn
 
 - What RPC (Remote Procedure Call) is and how it enables distributed communication
 - The definition and constraints of REST as an architectural style
@@ -14,6 +14,31 @@
 - When to choose REST vs gRPC based on your use case
 - Load balancing complexities with both approaches
 - Real-world code examples for both paradigms
+
+---
+
+## Practical Tutorials
+
+Hands-on code examples you can run locally:
+
+| Tutorial | Description | Run Time |
+|----------|-------------|----------|
+| [REST Tutorial](./practical/rest-tutorial/) | Simple Express.js REST API | ~10 min |
+| [gRPC Tutorial](./practical/grpc-tutorial/) | gRPC with Protocol Buffers | ~15 min |
+
+```bash
+# REST - Quick start
+cd practical/rest-tutorial
+npm install
+npm start          # Terminal 1
+node client.js     # Terminal 2
+
+# gRPC - Quick start
+cd practical/grpc-tutorial
+npm install
+npm run server     # Terminal 1
+npm run client     # Terminal 2
+```
 
 ---
 
@@ -887,7 +912,93 @@ service OrderService {
 
 ---
 
-## Building a gRPC Service - Code Walkthrough
+## Building a gRPC Service - Quick Start
+
+For a fast setup with Node.js, here are the essential files you need:
+
+### package.json
+
+```json
+{
+  "name": "grpc-tutorial",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.0",
+    "@grpc/proto-loader": "^0.7.10"
+  }
+}
+```
+
+### greeting.proto
+
+```protobuf
+syntax = "proto3";
+
+package greeting;
+
+service GreetingService {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+```
+
+### server.js
+
+```javascript
+const grpc = require('@grpc/grpc-js');
+const protoLoader = require('@grpc/proto-loader');
+
+const proto = grpc.loadPackageDefinition(
+  protoLoader.loadSync('greeting.proto')
+).greeting;
+
+function sayHello(call, callback) {
+  callback(null, { message: `Hello, ${call.request.name}!` });
+}
+
+const server = new grpc.Server();
+server.addService(proto.GreetingService.service, { SayHello: sayHello });
+server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
+  console.log('Server running on :50051');
+});
+```
+
+### client.js
+
+```javascript
+const grpc = require('@grpc/grpc-js');
+const protoLoader = require('@grpc/proto-loader');
+
+const proto = grpc.loadPackageDefinition(
+  protoLoader.loadSync('greeting.proto')
+).greeting;
+
+const client = new proto.GreetingService(
+  'localhost:50051',
+  grpc.credentials.createInsecure()
+);
+
+client.SayHello({ name: 'Alice' }, (err, response) => {
+  console.log(response.message);
+});
+```
+
+```bash
+# Run the gRPC example
+npm install
+node server.js   # Terminal 1
+node client.js   # Terminal 2 -> Output: "Hello, Alice!"
+```
+
+---
+
+## Building a gRPC Service - Full Walkthrough
 
 ### Step 1: Define greeting.proto
 
@@ -1053,7 +1164,61 @@ func main() {
 
 ---
 
-## Building a REST API - Code Walkthrough
+## Building a REST API - Quick Start
+
+Here's a minimal REST example with Express.js:
+
+### package.json
+
+```json
+{
+  "name": "rest-tutorial",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+```
+
+### server.js
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.post('/greet', (req, res) => {
+  const name = req.body.name;
+  res.status(200).json({ message: `Hello, ${name}!` });
+});
+
+app.listen(3000, () => {
+  console.log('Server running on :3000');
+});
+```
+
+### client.js
+
+```javascript
+fetch('http://localhost:3000/greet', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Alice' })
+})
+  .then(res => res.json())
+  .then(data => console.log(data.message));
+```
+
+```bash
+# Run the REST example
+npm install
+node server.js   # Terminal 1
+node client.js   # Terminal 2 -> Output: "Hello, Alice!"
+```
+
+---
+
+## Building a REST API - Full Code Walkthrough
 
 ### Step 1: Set Up Express.js Server
 

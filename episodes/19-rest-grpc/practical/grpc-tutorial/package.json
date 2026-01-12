@@ -1,0 +1,14 @@
+{
+  "name": "grpc-tutorial",
+  "version": "1.0.0",
+  "description": "Simple gRPC greeting service tutorial",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node client.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.0",
+    "@grpc/proto-loader": "^0.7.10"
+  }
+}
