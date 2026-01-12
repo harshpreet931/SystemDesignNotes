@@ -15,6 +15,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 6**: [Load Balancing](./episodes/06-load-balancing/) ✓
 - **Episode 7**: [Caching](./episodes/07-caching/) ✓
 - **Episode 8**: [CDNs Explained](./episodes/08-cdns/) ✓
+- **Episode 9**: [Databases Guide](./episodes/09-databases/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -304,6 +305,52 @@ CDN = Global Network for Fast Content Delivery
     ├── Akamai: Enterprise scale (365K+ servers)
     ├── Fastly: Real-time purging, developer focus
     └── Google Cloud CDN: GCP ecosystem
+```
+
+## Episode 9: The Ultimate Guide to Databases
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/09-databases/) | [View Presentation](./episodes/09-databases/presentation/)**
+
+### What You'll Learn:
+- What a database and DBMS are
+- Database design fundamentals: entities, attributes, relationships
+- SQL (Relational) databases and ACID compliance
+- Four core types of NoSQL databases
+- Two emerging types: Time-Series and Vector databases
+- How to choose the right database for your use case
+- NewSQL: Bridging SQL and NoSQL
+- Polyglot persistence in modern applications
+
+### Key Concepts Covered:
+```
+Database Types Overview
+├── SQL (Relational Databases)
+│   ├── Data Model: Tables with strict schema
+│   ├── Key Feature: ACID Compliance (Atomicity, Consistency, Isolation, Durability)
+│   ├── Examples: PostgreSQL, MySQL, SQL Server
+│   └── Best For: Transactions, financial data, structured data
+├── NoSQL (Non-Relational) - Core Types
+│   ├── Key-Value Stores: Simplest model (Redis, DynamoDB)
+│   │   └── Best For: Caching, sessions, simple lookups
+│   ├── Document Databases: Flexible JSON documents (MongoDB)
+│   │   └── Best For: User profiles, product catalogs
+│   ├── Column-Family Stores: Columnar storage (Cassandra)
+│   │   └── Best For: Big data analytics, time-series, logging
+│   └── Graph Databases: Nodes and relationships (Neo4j)
+│       └── Best For: Social networks, recommendations, fraud detection
+├── NoSQL - Emerging Types
+│   ├── Time-Series Databases: Optimized for timestamps (InfluxDB)
+│   │   └── Best For: IoT sensors, DevOps metrics, stock data
+│   └── Vector Databases: Store embeddings for AI (Pinecone, Weaviate)
+│       └── Best For: AI recommendations, semantic search, chatbots
+├── NewSQL: Bridging SQL and NoSQL
+│   ├── Concept: ACID guarantees + horizontal scaling
+│   ├── Examples: CockroachDB, YugabyteDB, TiDB
+│   └── Best For: Cloud-native apps needing SQL at scale
+└── Polyglot Persistence
+    ├── Use multiple databases for different needs
+    ├── Example: PostgreSQL (orders) + MongoDB (catalog) + Redis (cache)
+    └── Modern approach: Choose right tool for each job
 ```
 
 ## Contributing
