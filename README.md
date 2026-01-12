@@ -18,6 +18,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 9**: [Databases Guide](./episodes/09-databases/) ✓
 - **Episode 10**: [Vector Databases](./episodes/10-vector-databases/) ✓
 - **Episode 11**: [Keys in DBMS](./episodes/11-keys-in-dbms/) ✓
+- **Episode 12**: [Normalization vs Denormalization](./episodes/12-normalization-denormalization/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -438,6 +439,46 @@ Database Keys Fundamentals
     ├── Use Surrogate Keys for volatile data
     ├── Keep Natural Keys as Unique/Alternate Keys
     └── Every table needs a Primary Key
+```
+
+## Episode 12: Normalization vs Denormalization
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/12-normalization-denormalization/) | [View Presentation](./episodes/12-normalization-denormalization/presentation/)**
+
+### What You'll Learn:
+- What normalization is and why it ensures data integrity
+- The three data anomalies: Insertion, Update, and Deletion
+- Normal Forms progression: 1NF through 5NF
+- Functional, partial, and transitive dependencies
+- Boyce-Codd Normal Form (BCNF) and when to use it
+- What denormalization is and why it improves read performance
+- Denormalization techniques: redundant columns, table splitting, materialized views
+- When to choose normalization (OLTP) vs denormalization (OLAP)
+- The hybrid approach in modern system architecture
+
+### Key Concepts Covered:
+```
+Database Design: Structure vs Performance
+├── Data Anomalies (Why Normalize?)
+│   ├── Insertion Anomaly: Cannot add data without other data
+│   ├── Update Anomaly: Inconsistency from multiple copies
+│   └── Deletion Anomaly: Losing data when deleting unrelated record
+├── Normal Forms (Normalization)
+│   ├── 1NF: Atomic values, no repeating groups
+│   ├── 2NF: No partial dependency (full key required)
+│   ├── 3NF: No transitive dependency
+│   ├── BCNF: Every determinant is a superkey
+│   ├── 4NF: No multi-valued dependency
+│   └── 5NF: No join dependency (rare)
+├── Denormalization Techniques
+│   ├── Redundant Columns: Duplicate data to avoid JOINs
+│   ├── Derived Columns: Pre-computed values
+│   ├── Table Splitting: Horizontal/Vertical partitioning
+│   └── Materialized Views: Pre-computed query results
+└── Design Decisions
+    ├── Normalize for: OLTP, data integrity, write-heavy
+    ├── Denormalize for: OLAP, read-heavy, analytics
+    └── Hybrid: Normalized source + denormalized views
 ```
 
 ## Contributing
