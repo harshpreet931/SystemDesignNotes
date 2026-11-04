@@ -1,56 +1,122 @@
-# System Design Course
+<div align="center">
 
+# System Design, Measured
+
+**A free system design course with a YouTube video, deep-dive notes, and slides for every topic, plus runnable labs that test the claims on real infrastructure.**
+
+[![YouTube](https://img.shields.io/badge/YouTube-@ThatNotesGuy-red?logo=youtube&logoColor=white)](http://youtube.com/@ThatNotesGuy)
+[![Episodes](https://img.shields.io/badge/episodes-29-blue)](#-the-course)
+[![GitHub stars](https://img.shields.io/github/stars/harshpreet931/SystemDesignNotes?style=social)](https://github.com/harshpreet931/SystemDesignNotes/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![SD_README_LOGO](./assets/sd_readme_logo.png)
+![System Design Notes](./assets/sd_readme_logo.png)
+
+</div>
 
 > **"What separates your weekend project from Netflix or Uber? It's not just more servers or code, it's the blueprint. It's system design. : )"**
 
-Welcome to the most comprehensive, hands on system design course that takes you from zero to hero!
+## Why this one is different
 
-## **Episodes**
-- **Episode 1**: [System Design Fundamentals](./episodes/01-fundamentals/) ✓
-- **Episode 2**: [Monolith vs Microservices](./episodes/02-monolith-microservices/) ✓
-- **Episode 3**: [Functional vs Non-Functional Requirements](./episodes/03-functional-nonfunctional-requirements/) ✓
-- **Episode 4**: [Horizontal vs Vertical Scaling](./episodes/04-horizontal-vertical-scaling/) ✓
-- **Episode 5**: [Stateless vs Stateful Systems](./episodes/05-stateless-stateful-systems/) ✓
-- **Episode 6**: [Load Balancing](./episodes/06-load-balancing/) ✓
-- **Episode 7**: [Caching](./episodes/07-caching/) ✓
-- **Episode 8**: [CDNs Explained](./episodes/08-cdns/) ✓
-- **Episode 9**: [Databases Guide](./episodes/09-databases/) ✓
-- **Episode 10**: [Vector Databases](./episodes/10-vector-databases/) ✓
-- **Episode 11**: [Keys in DBMS](./episodes/11-keys-in-dbms/) ✓
-- **Episode 12**: [Normalization vs Denormalization](./episodes/12-normalization-denormalization/) ✓
-- **Episode 13**: [Database Indexing Mastery](./episodes/13-indexing/) ✓
-- **Episode 14**: [Sharding & Partitioning](./episodes/14-sharding-partitioning/) ✓
-- **Episode 15**: [Database Transactions & ACID](./episodes/15-database-transactions/) ✓
-- **Episode 16**: [CAP Theorem is Not Enough](./episodes/16-cap-theorem/) ✓
-- **Episode 17**: [OSI Model Deep Dive](./episodes/17-osi-model/) ✓
-- **Episode 18**: [TCP vs UDP - The Complete Engineering Deep Dive](./episodes/18-tcp-udp/) ✓
-- **Episode 19**: [REST vs gRPC - The Complete Architecture Masterclass](./episodes/19-rest-grpc/) ✓
-- **Episode 20**: [HTTP, HTTPS & WebSockets](./episodes/20-http-https-websockets/) ✓
-- **Episode 21**: [DNS (Domain Name System)](./episodes/21-dns/) ✓
-- **Episode 22**: [Network Latency, Bandwidth & Throughput](./episodes/22-latency-bandwidth-throughput/) ✓
-- **Episode 23**: [Redundancy & High Availability](./episodes/23-redundancy-high-availability/) ✓
-- **Episode 24**: [Replication Strategies - Zero Data Loss vs Insane Speed](./episodes/24-replication-strategies/) ✓
-- **Episode 25**: [Failover Mechanisms in System Design](./episodes/25-failover-mechanisms/) ✓
-- **Episode 26**: [Message Queues - Queues vs Streams](./episodes/26-message-queues/) ✓
-- **Episode 27**: [Designing REST APIs](./episodes/27-rest-api-design/) ✓
-- **Episode 28**: [Webhooks & Push Notifications](./episodes/28-webhooks-push-notifications/) ✓
-- **Episode 29**: [Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window](./episodes/29-rate-limiting/) ✓
-- So on...
+Most system design material repeats the same diagrams and the same numbers nobody has checked. Here, wherever a claim can be tested, it is.
 
-## Episode 1: System Design Fundamentals
+<p align="center">
+  <a href="./episodes/29-rate-limiting/"><img src="./episodes/29-rate-limiting/practical/ratelimit-from-scratch/plots/fig_boundary.png" alt="Fixed window rate limiter: 100/min limit, 200 requests allowed in 0.10 s" width="720"></a>
+</p>
+
+<p align="center"><i>A fixed-window limiter set to 100 requests/min, attacked on real Redis 7.4: <b>200 requests got through in 0.102 seconds</b>.<br>See how sliding windows, token bucket and leaky bucket did under the same attack in <a href="./episodes/29-rate-limiting/">Episode 29</a>.</i></p>
+
+- 🎥 **A video for every topic**: short, visual explanations on [YouTube](http://youtube.com/@ThatNotesGuy)
+- 📖 **Notes you can study from**: diagrams, comparison tables, trade-offs and real-world case studies in every episode
+- 🧪 **Labs you can run**: [rate limiters on Redis](./episodes/29-rate-limiting/practical/), [REST vs gRPC servers](./episodes/19-rest-grpc/practical/), [a mini RAG pipeline](./episodes/10-vector-databases/rag_tuitorial.md)
+- 🖼️ **Every slide included**, free to use for your own revision
+
+## 🚀 Start here
+
+| If you... | Follow this path |
+|---|---|
+| **are new to system design** | [01](./episodes/01-fundamentals/) → [03](./episodes/03-functional-nonfunctional-requirements/) → [04](./episodes/04-horizontal-vertical-scaling/) → [06](./episodes/06-load-balancing/) → [07](./episodes/07-caching/) → [09](./episodes/09-databases/) → [14](./episodes/14-sharding-partitioning/) |
+| **have an interview coming up** | [04](./episodes/04-horizontal-vertical-scaling/) → [07](./episodes/07-caching/) → [14](./episodes/14-sharding-partitioning/) → [16](./episodes/16-cap-theorem/) → [23](./episodes/23-redundancy-high-availability/) → [26](./episodes/26-message-queues/) → [29](./episodes/29-rate-limiting/) |
+| **learn best by building** | [Rate limiters](./episodes/29-rate-limiting/practical/) → [REST vs gRPC](./episodes/19-rest-grpc/practical/) → [Mini RAG](./episodes/10-vector-databases/rag_tuitorial.md) |
+
+## 📚 The Course
+
+### 🧱 Foundations
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 01 | **System Design Fundamentals** | [📖](./episodes/01-fundamentals/) | [🖼️](./episodes/01-fundamentals/presentation/) |  |
+| 02 | **Monolith vs Microservices** | [📖](./episodes/02-monolith-microservices/) | [🖼️](./episodes/02-monolith-microservices/presentation/) |  |
+| 03 | **Functional vs Non-Functional Requirements** | [📖](./episodes/03-functional-nonfunctional-requirements/) | [🖼️](./episodes/03-functional-nonfunctional-requirements/presentation/) |  |
+| 04 | **Horizontal vs Vertical Scaling** | [📖](./episodes/04-horizontal-vertical-scaling/) | [🖼️](./episodes/04-horizontal-vertical-scaling/presentation/) |  |
+| 05 | **Stateless vs Stateful Systems** | [📖](./episodes/05-stateless-stateful-systems/) | [🖼️](./episodes/05-stateless-stateful-systems/presentation/) |  |
+
+### ⚖️ Scaling & Traffic
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 06 | **Load Balancing** | [📖](./episodes/06-load-balancing/) | [🖼️](./episodes/06-load-balancing/presentation/) |  |
+| 07 | **Caching** | [📖](./episodes/07-caching/) | [🖼️](./episodes/07-caching/presentation/) |  |
+| 08 | **CDNs Explained** | [📖](./episodes/08-cdns/) | [🖼️](./episodes/08-cdns/presentation/) |  |
+
+### 🗄️ Data & Storage
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 09 | **Databases Guide** | [📖](./episodes/09-databases/) | [🖼️](./episodes/09-databases/presentation/) |  |
+| 10 | **Vector Databases** | [📖](./episodes/10-vector-databases/) | [🖼️](./episodes/10-vector-databases/presentation/) | [Mini RAG in Python](./episodes/10-vector-databases/rag_tuitorial.md) |
+| 11 | **Keys in DBMS** | [📖](./episodes/11-keys-in-dbms/) | [🖼️](./episodes/11-keys-in-dbms/presentation/) |  |
+| 12 | **Normalization vs Denormalization** | [📖](./episodes/12-normalization-denormalization/) | [🖼️](./episodes/12-normalization-denormalization/presentation/) |  |
+| 13 | **Database Indexing Mastery** | [📖](./episodes/13-indexing/) | [🖼️](./episodes/13-indexing/presentation/) |  |
+| 14 | **Sharding & Partitioning** | [📖](./episodes/14-sharding-partitioning/) | [🖼️](./episodes/14-sharding-partitioning/presentation/) |  |
+| 15 | **Database Replication & Leader Election** | [📖](./episodes/15-replication-leader-election/) | [🖼️](./episodes/15-replication-leader-election/presentation/) |  |
+| 16 | **CAP Theorem is Not Enough** | [📖](./episodes/16-cap-theorem/) | [🖼️](./episodes/16-cap-theorem/presentation/) |  |
+
+### 🌐 Networking & Protocols
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 17 | **OSI Model Deep Dive** | [📖](./episodes/17-osi-model/) | [🖼️](./episodes/17-osi-model/presentation/) |  |
+| 18 | **TCP vs UDP - The Complete Engineering Deep Dive** | [📖](./episodes/18-tcp-udp/) | [🖼️](./episodes/18-tcp-udp/presentation/) |  |
+| 19 | **REST vs gRPC - The Complete Architecture Masterclass** | [📖](./episodes/19-rest-grpc/) | [🖼️](./episodes/19-rest-grpc/presentation/) | [REST & gRPC servers in Node](./episodes/19-rest-grpc/practical/) |
+| 20 | **HTTP, HTTPS & WebSockets** | [📖](./episodes/20-http-https-websockets/) | [🖼️](./episodes/20-http-https-websockets/presentation/) |  |
+| 21 | **DNS (Domain Name System)** | [📖](./episodes/21-dns/) | [🖼️](./episodes/21-dns/presentation/) |  |
+| 22 | **Network Latency, Bandwidth & Throughput** | [📖](./episodes/22-latency-bandwidth-throughput/) | [🖼️](./episodes/22-latency-bandwidth-throughput/presentation/) |  |
+
+### 🛡️ Reliability & Availability
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 23 | **Redundancy & High Availability** | [📖](./episodes/23-redundancy-high-availability/) | [🖼️](./episodes/23-redundancy-high-availability/presentation/) |  |
+| 24 | **Replication Strategies - Zero Data Loss vs Insane Speed** | [📖](./episodes/24-replication-strategies/) | [🖼️](./episodes/24-replication-strategies/presentation/) |  |
+| 25 | **Failover Mechanisms in System Design** | [📖](./episodes/25-failover-mechanisms/) | [🖼️](./episodes/25-failover-mechanisms/presentation/) |  |
+
+### 📨 Communication & APIs
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 26 | **Message Queues - Queues vs Streams** | [📖](./episodes/26-message-queues/) | [🖼️](./episodes/26-message-queues/presentation/) |  |
+| 27 | **Designing REST APIs** | [📖](./episodes/27-rest-api-design/) | [🖼️](./episodes/27-rest-api-design/presentation/) |  |
+| 28 | **Webhooks & Push Notifications** | [📖](./episodes/28-webhooks-push-notifications/) | [🖼️](./episodes/28-webhooks-push-notifications/presentation/) |  |
+| 29 | **Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window** | [📖](./episodes/29-rate-limiting/) | [🖼️](./episodes/29-rate-limiting/presentation/) | [5 rate limiters on real Redis](./episodes/29-rate-limiting/practical/) |
+
+New episodes land regularly. **⭐ Star the repo** to follow along.
+
+## 🔍 Episode Summaries
+
+Expand any episode to see what it covers before you dive in.
+
+<details>
+<summary><b>Episode 1: System Design Fundamentals</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/01-fundamentals/) | [View Presentation](./episodes/01-fundamentals/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What is System Design and why it matters
 - High-Level Design (HLD) vs Low-Level Design (LLD)
 - Real example: Designing a URL Shortener
 - Hands-on: Build your first system architecture
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 System Design = Software Architecture Blueprint
 ├── High-Level Design (HLD) - The Big Picture
@@ -65,17 +131,19 @@ System Design = Software Architecture Blueprint
     └── Error Handling & Edge Cases
 ```
 
-## Episode 2: Monoliths vs Microservices
+</details>
+<details>
+<summary><b>Episode 2: Monoliths vs Microservices</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/02-monolith-microservices/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What monolithic architecture is and when to use it
 - What microservices architecture is and its benefits
 - Real-world examples: Netflix's evolution and Uber's architecture
 - Practical decision framework for choosing between approaches
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Architecture Patterns Comparison
 ├── Monolithic Architecture
@@ -90,18 +158,20 @@ Architecture Patterns Comparison
     └── Challenges: Complexity, Operational Overhead
 ```
 
-## Episode 3: Functional vs Non-Functional Requirements
+</details>
+<details>
+<summary><b>Episode 3: Functional vs Non-Functional Requirements</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/03-functional-nonfunctional-requirements/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What requirements are and why they're critical to system design
 - The difference between functional and non-functional requirements
 - How to identify and document both requirement types
 - Real-world example: Online bookstore requirements breakdown
 - The requirements elicitation process
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Requirements = Foundation of System Design
 ├── Functional Requirements (WHAT the system does)
@@ -119,11 +189,13 @@ Requirements = Foundation of System Design
     └── Portability: Cross-platform, deployment flexibility
 ```
 
-## Episode 4: Horizontal vs Vertical Scaling
+</details>
+<details>
+<summary><b>Episode 4: Horizontal vs Vertical Scaling</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/04-horizontal-vertical-scaling/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What scalability means across three dimensions (load, data, compute)
 - Vertical scaling: Making one machine more powerful
 - Horizontal scaling: Distributed systems engineering
@@ -131,7 +203,7 @@ Requirements = Foundation of System Design
 - Decision matrix and practical frameworks for choosing the right approach
 - Monitoring, metrics, and autoscaling strategies
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Scaling Strategies Comparison
 ├── Vertical Scaling (Scale Up)
@@ -150,11 +222,13 @@ Scaling Strategies Comparison
     └── Autoscaling: Reactive, predictive, serverless
 ```
 
-## Episode 5: Stateless vs Stateful Systems
+</details>
+<details>
+<summary><b>Episode 5: Stateless vs Stateful Systems</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/05-stateless-stateful-systems/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What "state" means in software systems (memory and session data)
 - Stateless systems: Vending machine analogy and REST APIs
 - Stateful systems: Bank teller analogy and session management
@@ -162,7 +236,7 @@ Scaling Strategies Comparison
 - Real-world examples: Netflix, Amazon, and WhatsApp architectures
 - Decision framework for choosing the right approach
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 State Management Strategies
 ├── Stateless Systems (Amnesia Design)
@@ -183,11 +257,13 @@ State Management Strategies
     └── WhatsApp: Stateful connections for real-time (2B users)
 ```
 
-## Episode 6: Load Balancing
+</details>
+<details>
+<summary><b>Episode 6: Load Balancing</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/06-load-balancing/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What load balancing is and its critical role in distributed systems
 - Primary objectives: Scalability and High Availability
 - 9 load balancing algorithms and when to use each
@@ -197,7 +273,7 @@ State Management Strategies
 - Load balancer types: Hardware, Software, and Cloud
 - L4 vs L7 load balancing and their trade-offs
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Load Balancing Strategies
 ├── Primary Objectives
@@ -229,11 +305,13 @@ Load Balancing Strategies
     └── L7: Content-based routing, SSL termination, microservices
 ```
 
-## Episode 7: Caching
+</details>
+<details>
+<summary><b>Episode 7: Caching</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/07-caching/) | [View Presentation](./episodes/07-caching/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What caching is and why it's fundamental to high-performance systems
 - The benefits: reduced latency, increased throughput, lower costs
 - Client-side vs. server-side caching strategies
@@ -245,7 +323,7 @@ Load Balancing Strategies
 - The Thundering Herd problem and mitigation strategies
 - Real-world case studies: Facebook, Netflix, and Amazon
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Caching = Smart Memory for Faster Systems
 ├── Core Benefits
@@ -276,11 +354,13 @@ Caching = Smart Memory for Faster Systems
     └── Amazon: DAX for microsecond DynamoDB reads
 ```
 
-## Episode 8: CDNs Explained
+</details>
+<details>
+<summary><b>Episode 8: CDNs Explained</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/08-cdns/) | [View Presentation](./episodes/08-cdns/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What a Content Delivery Network (CDN) is and its core purpose
 - How CDNs solve the latency problem caused by geographic distance
 - The CDN workflow: Cache hits, cache misses, and origin fetching
@@ -291,7 +371,7 @@ Caching = Smart Memory for Faster Systems
 - Real-world case studies: Netflix Open Connect, Facebook's infrastructure
 - Edge computing concepts and modern CDN capabilities
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 CDN = Global Network for Fast Content Delivery
 ├── Core Concept
@@ -329,11 +409,13 @@ CDN = Global Network for Fast Content Delivery
     └── Google Cloud CDN: GCP ecosystem
 ```
 
-## Episode 9: The Ultimate Guide to Databases
+</details>
+<details>
+<summary><b>Episode 9: The Ultimate Guide to Databases</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/09-databases/) | [View Presentation](./episodes/09-databases/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What a database and DBMS are
 - Database design fundamentals: entities, attributes, relationships
 - SQL (Relational) databases and ACID compliance
@@ -343,7 +425,7 @@ CDN = Global Network for Fast Content Delivery
 - NewSQL: Bridging SQL and NoSQL
 - Polyglot persistence in modern applications
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Database Types Overview
 ├── SQL (Relational Databases)
@@ -375,11 +457,13 @@ Database Types Overview
     └── Modern approach: Choose right tool for each job
 ```
 
-## Episode 10: Vector Databases
+</details>
+<details>
+<summary><b>Episode 10: Vector Databases</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/10-vector-databases/) | [View Presentation](./episodes/10-vector-databases/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What vector embeddings are and why they matter
 - How vector databases differ from traditional databases
 - Approximate Nearest Neighbor (ANN) search algorithms
@@ -389,7 +473,7 @@ Database Types Overview
 - Hybrid search: combining vectors with metadata
 - Performance considerations: HNSW, quantization, filtering
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Vector Databases Fundamentals
 ├── Vector Embeddings
@@ -416,11 +500,13 @@ Vector Databases Fundamentals
     └── Hybrid search (Vector + Metadata filtering)
 ```
 
-## Episode 11: Keys in DBMS
+</details>
+<details>
+<summary><b>Episode 11: Keys in DBMS</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/11-keys-in-dbms/) | [View Presentation](./episodes/11-keys-in-dbms/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - The purpose of database keys in ensuring data integrity
 - The difference between Super Keys, Candidate Keys, and Primary Keys
 - How Primary Keys differ from Unique Keys (null handling)
@@ -431,7 +517,7 @@ Vector Databases Fundamentals
 - Modern distributed keys: ULIDs and Snowflake IDs
 - Temporal keys for auditing and compliance
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Database Keys Fundamentals
 ├── Key Hierarchy
@@ -460,11 +546,13 @@ Database Keys Fundamentals
     └── Every table needs a Primary Key
 ```
 
-## Episode 12: Normalization vs Denormalization
+</details>
+<details>
+<summary><b>Episode 12: Normalization vs Denormalization</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/12-normalization-denormalization/) | [View Presentation](./episodes/12-normalization-denormalization/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What normalization is and why it ensures data integrity
 - The three data anomalies: Insertion, Update, and Deletion
 - Normal Forms progression: 1NF through 5NF
@@ -475,7 +563,7 @@ Database Keys Fundamentals
 - When to choose normalization (OLTP) vs denormalization (OLAP)
 - The hybrid approach in modern system architecture
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Database Design: Structure vs Performance
 ├── Data Anomalies (Why Normalize?)
@@ -500,11 +588,13 @@ Database Design: Structure vs Performance
     └── Hybrid: Normalized source + denormalized views
 ```
 
-## Episode 13: Database Indexing Mastery
+</details>
+<details>
+<summary><b>Episode 13: Database Indexing Mastery</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/13-indexing/) | [View Presentation](./episodes/13-indexing/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What database indexes are and why they are critical for performance
 - B-Tree and B+Tree data structures that power most database indexes
 - The difference between clustered and non-clustered indexes
@@ -515,7 +605,7 @@ Database Design: Structure vs Performance
 - Index maintenance: fragmentation, VACUUM, and fill factors
 - Best practices for index design and avoiding common anti-patterns
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Database Indexing Fundamentals
 ├── Index Basics
@@ -549,11 +639,13 @@ Database Indexing Fundamentals
     └── Monitoring: pg_stat_user_indexes usage stats
 ```
 
-## Episode 14: Sharding & Partitioning
+</details>
+<details>
+<summary><b>Episode 14: Sharding & Partitioning</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/14-sharding-partitioning/) | [View Presentation](./episodes/14-sharding-partitioning/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - The critical distinction between partitioning and sharding
 - Types of partitions: Range, List, Hash, and Composite
 - How to select optimal shard keys (cardinality, uniformity, query alignment)
@@ -562,7 +654,7 @@ Database Indexing Fundamentals
 - Resharding strategies and zero-downtime migrations
 - Real-world sharding patterns from Vitess, CockroachDB, and MongoDB
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Scaling Databases: Distribution Strategies
 ├── Sharding vs Partitioning
@@ -592,11 +684,13 @@ Scaling Databases: Distribution Strategies
     └── MongoDB: Document database sharding
 ```
 
-## Episode 15: Database Replication & Leader Election
+</details>
+<details>
+<summary><b>Episode 15: Database Replication & Leader Election</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/15-replication-leader-election/) | [View Presentation](./episodes/15-replication-leader-election/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - Database replication: Master-Slave patterns, binary logs, and GTIDs
 - Synchronous vs asynchronous replication trade-offs
 - Practical MySQL/MariaDB replication setup
@@ -605,7 +699,7 @@ Scaling Databases: Distribution Strategies
 - Split brain prevention and fencing tokens
 - Sharding to scale beyond single-master limitations
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Distributed Coordination: Replication and Consensus
 ├── Replication Fundamentals
@@ -639,11 +733,13 @@ Distributed Coordination: Replication and Consensus
     └── Multi-shard operations and rebalancing
 ```
 
-## Episode 16: CAP Theorem is Not Enough - The Truth About Distributed Systems
+</details>
+<details>
+<summary><b>Episode 16: CAP Theorem is Not Enough - The Truth About Distributed Systems</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/16-cap-theorem/) | [View Presentation](./episodes/16-cap-theorem/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - The real meaning of CAP theorem and why "Pick Two" is misleading
 - Why CA systems do not actually exist in distributed computing
 - The critical difference between CAP Consistency and ACID Consistency
@@ -651,7 +747,7 @@ Distributed Coordination: Replication and Consensus
 - How to classify databases as PA/EL vs PC/EC
 - Practical decision framework for choosing the right consistency model
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Distributed Consistency Trade-offs
 ├── CAP Theorem Fundamentals
@@ -677,11 +773,13 @@ Distributed Consistency Trade-offs
     └── Global distribution? -> Expect partitions
 ```
 
-## Episode 17: The OSI Model
+</details>
+<details>
+<summary><b>Episode 17: The OSI Model</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/17-osi-model/) | [View Presentation](./episodes/17-osi-model/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - The 7 layers of the OSI model and their specific responsibilities
 - How data flows through the network stack (encapsulation and decapsulation)
 - The role of each layer in real-world protocols (Ethernet, IP, TCP, HTTP)
@@ -689,7 +787,7 @@ Distributed Consistency Trade-offs
 - Common misconceptions about the OSI model in modern networking
 - How the TCP/IP model maps to the OSI model
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 OSI Model Fundamentals
 ├── 7 Layers Overview
@@ -721,11 +819,13 @@ OSI Model Fundamentals
     └── Network virtualization and SDN
 ```
 
-## Episode 18: TCP vs UDP
+</details>
+<details>
+<summary><b>Episode 18: TCP vs UDP</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/18-tcp-udp/) | [View Presentation](./episodes/18-tcp-udp/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - How TCP and UDP operate at the Transport Layer (Layer 4)
 - The fundamental differences between connection-oriented and connectionless protocols
 - TCP's reliability mechanisms: handshakes, sequencing, acknowledgments, and retransmissions
@@ -734,7 +834,7 @@ OSI Model Fundamentals
 - How QUIC and HTTP/3 leverage UDP for modern web performance
 - Practical decision frameworks for choosing the right protocol
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Transport Layer Protocols: TCP vs UDP
 ├── TCP Fundamentals
@@ -768,11 +868,13 @@ Transport Layer Protocols: TCP vs UDP
     └── QUIC: Best of both worlds
 ```
 
-## Episode 19: REST vs gRPC
+</details>
+<details>
+<summary><b>Episode 19: REST vs gRPC</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/19-rest-grpc/) | [View Presentation](./episodes/19-rest-grpc/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What RPC (Remote Procedure Call) is and how it enables distributed communication
 - The definition and constraints of REST as an architectural style
 - The Richardson Maturity Model and HATEOAS principles
@@ -784,7 +886,7 @@ Transport Layer Protocols: TCP vs UDP
 - Load balancing complexities with both approaches
 - Real-world code examples for both paradigms
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Communication Patterns: REST vs gRPC
 ├── RPC Foundation
@@ -835,18 +937,20 @@ Communication Patterns: REST vs gRPC
     └── Debugging: gRPC requires deserialization tools
 ```
 
-## Episode 20: HTTP, HTTPS & WebSockets
+</details>
+<details>
+<summary><b>Episode 20: HTTP, HTTPS & WebSockets</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/20-http-https-websockets/) | [View Presentation](./episodes/20-http-https-websockets/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - How HTTP works as a stateless request-response protocol, and its evolution from 0.9 to 1.1 (Keep-Alive)
 - How HTTPS wraps HTTP in a TLS tunnel with handshakes and certificates
 - Why HTTP struggles with real-time apps, and the short/long polling hacks
 - The WebSocket upgrade handshake, frames, opcodes, ping/pong heartbeats, and masking
 - Scaling WebSockets with Redis Pub/Sub, load balancer tuning, and WSS
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 HTTP, HTTPS & WebSockets
 ├── HTTP Fundamentals
@@ -878,18 +982,20 @@ HTTP, HTTPS & WebSockets
     └── WebTransport: reliable streams + unreliable datagrams
 ```
 
-## Episode 21: DNS (Domain Name System)
+</details>
+<details>
+<summary><b>Episode 21: DNS (Domain Name System)</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/21-dns/) | [View Presentation](./episodes/21-dns/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - Why DNS replaced HOSTS.TXT, and how the hierarchical namespace (root, TLD, second-level, subdomain) delegates authority
 - The four DNS server types and the step-by-step lookup flow, recursive vs iterative queries
 - Why DNS runs on UDP/53, when it falls back to TCP, and the 12-byte header
 - Record types (A, AAAA, CNAME, ALIAS, PTR), TTL, caching layers, propagation, and zone transfers
 - DNS attacks (cache poisoning, hijacking, amplification, tunneling) and defenses: DNSSEC, DoH, DoT
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 DNS (Domain Name System)
 ├── History
@@ -924,18 +1030,20 @@ DNS (Domain Name System)
     └── DoH (443) / DoT (853): encrypted lookups (privacy)
 ```
 
-## Episode 22: Network Latency, Bandwidth & Throughput
+</details>
+<details>
+<summary><b>Episode 22: Network Latency, Bandwidth & Throughput</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/22-latency-bandwidth-throughput/) | [View Presentation](./episodes/22-latency-bandwidth-throughput/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - The difference between latency (time), bandwidth (capacity), and throughput (reality)
 - The four components of latency: propagation, serialization, processing, and queuing
 - The speed-of-light floor, TCP/TLS handshake costs, and the Bandwidth-Delay Product (BDP)
 - Latency vs throughput trade-offs (batching, compression, parallelism, Little's Law), packet loss, jitter, and P99 tail latency
 - Optimizations: Protobuf, CDNs, keep-alive, optimistic UI, and observability with RUM and distributed tracing
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Network Performance Metrics
 ├── The Holy Trinity
@@ -964,18 +1072,20 @@ Network Performance Metrics
     └── Huge payload? Compression / Protobuf
 ```
 
-## Episode 23: Redundancy & High Availability
+</details>
+<details>
+<summary><b>Episode 23: Redundancy & High Availability</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/23-redundancy-high-availability/) | [View Presentation](./episodes/23-redundancy-high-availability/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What High Availability means, the "nines" (99.9% ≈ 8h 46m vs 99.999% ≈ 5m 16s downtime/year), and redundancy to eliminate SPOFs
 - Active-Passive ("spare tire"): heartbeats, failover with a 30-60s downtime window, and failback
 - Active-Active ("multi-lane highway"): load balancing, health checks, near-instant failover
 - Trade-offs in utilization, scalability, complexity, and cost, plus the multi-master write-conflict problem
 - Database choices (PostgreSQL/MySQL vs Cassandra/Aerospike) and HA vs Disaster Recovery (geo-redundancy)
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 High Availability = Continuity via Redundancy
 ├── Active-Passive ("Spare Tire")
@@ -1002,18 +1112,20 @@ High Availability = Continuity via Redundancy
         └── Geo-redundancy: Active-Active across regions
 ```
 
-## Episode 24: Replication Strategies - Zero Data Loss vs Insane Speed
+</details>
+<details>
+<summary><b>Episode 24: Replication Strategies - Zero Data Loss vs Insane Speed</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/24-replication-strategies/) | [View Presentation](./episodes/24-replication-strategies/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - Why we replicate: high availability, read scaling, disaster recovery, and lower latency
 - Synchronous replication: zero RPO, latency cost, the ~300 km distance limit, and blocked writes
 - Asynchronous replication: fire and forget, replication lag, and the PostgreSQL WAL problem
 - Semi-synchronous replication and the risk of silently falling back to async
 - Quorum/consensus (Raft, Paxos, CockroachDB) and picking a strategy per use case
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Replication Strategies: When Does the Primary Say "Success"?
 ├── Why Replicate
@@ -1041,18 +1153,20 @@ Replication Strategies: When Does the Primary Say "Success"?
     └── Async: Cross-continent DR, analytics, feeds, AdTech
 ```
 
-## Episode 25: Failover Mechanisms in System Design
+</details>
+<details>
+<summary><b>Episode 25: Failover Mechanisms in System Design</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/25-failover-mechanisms/) | [View Presentation](./episodes/25-failover-mechanisms/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What failover is, five nines (99.999%), and planned vs unplanned failures
 - RTO and RPO, and eliminating single points of failure at every layer
 - Cold, warm, and hot standby; active-passive vs active-active and split-brain
 - Failover triggers: heartbeats, load balancer health checks, SNMP traps, DNS switching
 - Microservice resiliency (circuit breakers, bulkheads, retries with backoff), database failover, AWS ELB, and Netflix Chaos Monkey
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Failover: The System's Ultimate Safety Net
 ├── Fundamentals
@@ -1085,18 +1199,20 @@ Failover: The System's Ultimate Safety Net
     └── Netflix Chaos Monkey: Kills prod servers to prove resilience
 ```
 
-## Episode 26: Message Queues
+</details>
+<details>
+<summary><b>Episode 26: Message Queues</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/26-message-queues/) | [View Presentation](./episodes/26-message-queues/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - The difference between queues (commands, destructive reads) and streams (events, immutable logs)
 - How RabbitMQ routes messages with exchanges, bindings, and routing keys (smart broker, dumb consumer)
 - How Kafka scales with partitions, sequential I/O, consumer groups, offsets, and replayability
 - How Amazon SQS works with long polling, visibility timeouts, and its per-request cost model
 - Delivery guarantees (at-most-once, at-least-once, exactly-once) and why consumers must be idempotent
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Message Queues: Queues vs Streams
 ├── Core Distinction
@@ -1129,18 +1245,20 @@ Message Queues: Queues vs Streams
     └── Hybrid: Kafka backbone + SQS/RabbitMQ worker queues
 ```
 
-## Episode 27: Designing REST APIs
+</details>
+<details>
+<summary><b>Episode 27: Designing REST APIs</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/27-rest-api-design/) | [View Presentation](./episodes/27-rest-api-design/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - Why REST is an architectural style (not HTTP), and Fielding's six constraints
 - Resource naming with plural nouns, HTTP methods as actions, and idempotency (PUT vs PATCH)
 - Using status codes correctly and standardizing errors with RFC 7807 Problem Details
 - Pagination (offset vs cursor), filtering, sorting, and API versioning strategies
 - Security (HTTPS, JWT, OAuth 2.0/RBAC, rate limiting), performance (ETags, Cache-Control, compression), and OpenAPI docs
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 REST API Design
 ├── REST Fundamentals
@@ -1186,18 +1304,20 @@ REST API Design
     └── Contract-first: parallel frontend/backend, generated SDKs
 ```
 
-## Episode 28: Webhooks & Push Notifications
+</details>
+<details>
+<summary><b>Episode 28: Webhooks & Push Notifications</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/28-webhooks-push-notifications/) | [View Presentation](./episodes/28-webhooks-push-notifications/presentation/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - Why polling wastes resources and adds delay, and how webhooks ("reverse APIs") push events instead
 - When to use REST APIs vs webhooks vs WebSockets
 - Securing webhooks with HTTPS, HMAC signatures, timestamp checks, and idempotency, plus a Node.js receiver
 - How push notifications reach devices through APNs and FCM using device tokens and one persistent OS connection
 - Offline delivery: APNs coalescing, FCM queuing, collapse keys, the 4 KB payload limit, and token pruning
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Event-Driven Communication
 ├── The Problem: Polling
@@ -1216,18 +1336,20 @@ Event-Driven Communication
     └── Offline: APNs keeps latest, FCM queues 100, collapse_key, prune on 410
 ```
 
-## Episode 29: Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window
+</details>
+<details>
+<summary><b>Episode 29: Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window</b></summary>
 
 **[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/29-rate-limiting/) | [View Presentation](./episodes/29-rate-limiting/presentation/) | [Run the Practical](./episodes/29-rate-limiting/practical/)**
 
-### What You'll Learn:
+#### What You'll Learn:
 - What a rate limiter decides per request (allow, 429, or queue) and the accuracy / burst / memory trade-off
 - How fixed window, sliding log, sliding window counter, token bucket, and leaky bucket (meter vs queue) work
 - What each one actually let through under the same attack on real Redis (fixed window: 200 in 0.102 s against a 100/min limit)
 - Why distributed limiters break under race conditions (20 gateways let 1,000 of 1,000 through) and how one Lua script fixes it
 - How LLM APIs limit tokens per minute, plus GCRA and concurrency limits
 
-### Key Concepts Covered:
+#### Key Concepts Covered:
 ```
 Rate Limiting (running example: 100 requests/min)
 ├── The Decision: key (API key/user/IP/route) → allow | 429 | queue
@@ -1246,6 +1368,8 @@ Rate Limiting (running example: 100 requests/min)
     └── Concurrency limits: Little's law L = λ × W
 ```
 
+</details>
+
 ## Contributing
 
 We love contributions! Here's how you can help make this course even better:
@@ -1257,6 +1381,9 @@ We love contributions! Here's how you can help make this course even better:
 - [Add more examples](./CONTRIBUTING.md)
 
 ## Follow the Journey
+
+If these notes helped you, **⭐ star the repo**. It is the best way to get new episodes in your feed and helps other engineers find it.
+
 
 - **YouTube**: [Subscribe for new episodes](http://youtube.com/@ThatNotesGuy)
 - **LinkedIn**: [Connect with Harsh](https://www.linkedin.com/in/harshpreet931/)
