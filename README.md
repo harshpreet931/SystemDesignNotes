@@ -30,6 +30,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 19**: [REST vs gRPC - The Complete Architecture Masterclass](./episodes/19-rest-grpc/) ✓
 - **Episode 20**: [HTTP, HTTPS & WebSockets](./episodes/20-http-https-websockets/) ✓
 - **Episode 21**: [DNS (Domain Name System)](./episodes/21-dns/) ✓
+- **Episode 22**: [Network Latency, Bandwidth & Throughput](./episodes/22-latency-bandwidth-throughput/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -914,6 +915,46 @@ DNS (Domain Name System)
     ├── Attacks: cache poisoning (Kaminsky), hijacking, amplification, tunneling
     ├── DNSSEC: RRSIG, DNSKEY, DS → chain of trust
     └── DoH (443) / DoT (853): encrypted lookups (privacy)
+```
+
+## Episode 22: Network Latency, Bandwidth & Throughput
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/22-latency-bandwidth-throughput/) | [View Presentation](./episodes/22-latency-bandwidth-throughput/presentation/)**
+
+### What You'll Learn:
+- The difference between latency (time), bandwidth (capacity), and throughput (reality)
+- The four components of latency: propagation, serialization, processing, and queuing
+- The speed-of-light floor, TCP/TLS handshake costs, and the Bandwidth-Delay Product (BDP)
+- Latency vs throughput trade-offs (batching, compression, parallelism, Little's Law), packet loss, jitter, and P99 tail latency
+- Optimizations: Protobuf, CDNs, keep-alive, optimistic UI, and observability with RUM and distributed tracing
+
+### Key Concepts Covered:
+```
+Network Performance Metrics
+├── The Holy Trinity
+│   ├── Latency: Time delay (ms)
+│   ├── Bandwidth: Max theoretical capacity (Gbps)
+│   └── Throughput: Actual achieved rate (≤ bandwidth)
+├── Components of Latency
+│   ├── Propagation: Speed of light (~200,000 km/s in fiber)
+│   ├── Serialization: Packet size / bandwidth
+│   ├── Processing: Router/server CPU
+│   └── Queuing: Buffer waits → jitter
+├── Hard Limits & Protocol Costs
+│   ├── NY ↔ London: ~56ms RTT theoretical minimum
+│   ├── TCP handshake: 1.5 RTT + TLS 1-2 RTTs
+│   ├── BDP = Bandwidth × RTT (1Gbps × 100ms = 12.5 MB)
+│   └── Packet loss & jitter: TCP backs off, VoIP suffers
+├── Trade-offs & Tail Latency
+│   ├── Batching / Compression / Parallelism
+│   ├── Little's Law: L = λW
+│   └── P99 over averages (1% of 1M = 10,000 users)
+└── Optimizations
+    ├── Real-time? UDP/WebSockets
+    ├── Global? CDN (edge servers)
+    ├── High throughput? Batching + Parallelism
+    ├── Chatty? Keep-Alive / persistent connections
+    └── Huge payload? Compression / Protobuf
 ```
 
 ## Contributing
