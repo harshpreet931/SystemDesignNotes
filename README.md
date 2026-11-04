@@ -35,6 +35,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 24**: [Replication Strategies - Zero Data Loss vs Insane Speed](./episodes/24-replication-strategies/) ✓
 - **Episode 25**: [Failover Mechanisms in System Design](./episodes/25-failover-mechanisms/) ✓
 - **Episode 26**: [Message Queues - Queues vs Streams](./episodes/26-message-queues/) ✓
+- **Episode 27**: [Designing REST APIs](./episodes/27-rest-api-design/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -1124,6 +1125,63 @@ Message Queues: Queues vs Streams
     ├── Ephemeral task -> Queue | Permanent fact -> Stream
     ├── Understand the cost model, not just the price
     └── Hybrid: Kafka backbone + SQS/RabbitMQ worker queues
+```
+
+## Episode 27: Designing REST APIs
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/27-rest-api-design/) | [View Presentation](./episodes/27-rest-api-design/presentation/)**
+
+### What You'll Learn:
+- Why REST is an architectural style (not HTTP), and Fielding's six constraints
+- Resource naming with plural nouns, HTTP methods as actions, and idempotency (PUT vs PATCH)
+- Using status codes correctly and standardizing errors with RFC 7807 Problem Details
+- Pagination (offset vs cursor), filtering, sorting, and API versioning strategies
+- Security (HTTPS, JWT, OAuth 2.0/RBAC, rate limiting), performance (ETags, Cache-Control, compression), and OpenAPI docs
+
+### Key Concepts Covered:
+```
+REST API Design
+├── REST Fundamentals
+│   ├── Roy Fielding (2000): architectural style, NOT a protocol
+│   ├── REST ≠ HTTP: you can build non-RESTful HTTP APIs
+│   ├── Resource (named entity) + Representation (JSON snapshot)
+│   └── Analogy: Menu = API, Guest = Client, Kitchen = Server
+├── Six Constraints
+│   ├── Client-Server, Statelessness (key to scale), Cacheability
+│   ├── Layered System, Uniform Interface, Code on Demand (optional)
+│   └── Breaking statelessness -> distributed monolith
+├── Resource Naming
+│   ├── Nouns not verbs: GET /users, not /getUsers
+│   ├── Plural collections: /users/123
+│   └── URL = target, HTTP method = action
+├── HTTP Methods & Idempotency
+│   ├── GET, PUT, DELETE idempotent; POST not; PATCH not inherently
+│   └── PUT = replace the whole car, PATCH = change the tires
+├── Status Codes & Errors
+│   ├── Never 200 for errors; 400 / 401 / 422 / 429; 201 + Location
+│   ├── RFC 7807 Problem Details: code, message, field, docs URL
+│   └── Never leak stack traces or DB internals
+├── Pagination, Filtering, Sorting
+│   ├── ?status=active, ?sort=-price
+│   ├── Offset: simple, slow on huge datasets, duplicates/gaps
+│   └── Cursor: fast, stable for feeds; always cap limits
+├── Versioning
+│   ├── URI (/api/v1) - pragmatic default
+│   ├── Header (Accept: vnd.myapi.v1+json), Query (?version=1)
+│   └── Bump only for breaking changes; deprecate generously
+├── Security
+│   ├── HTTPS always
+│   ├── Authentication: JWT / API keys (who)
+│   ├── Authorization: OAuth 2.0 / RBAC (what)
+│   └── Rate limiting: 429 + X-RateLimit-* + Retry-After
+├── Performance
+│   ├── Cache-Control for CDNs/browsers
+│   ├── ETags + If-None-Match -> 304 Not Modified
+│   └── Gzip/Brotli compression, field selection (?fields=id,name)
+└── Documentation & DX
+    ├── OpenAPI Specification (YAML/JSON)
+    ├── Swagger UI: interactive "Try it out" docs
+    └── Contract-first: parallel frontend/backend, generated SDKs
 ```
 
 ## Contributing
