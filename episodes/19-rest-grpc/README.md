@@ -1782,6 +1782,6 @@ Best_Practices:
 
 <div align="center">
 
-[Previous: Episode 18](../18-tcp-udp) | [Course Home](../../) | [Next: Episode 20](../20-coming-soon/)
+[Previous: Episode 18](../18-tcp-udp) | [Course Home](../../) | [Next: Episode 20](../20-http-https-websockets/)
 
 </div>

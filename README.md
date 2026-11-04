@@ -28,6 +28,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 17**: [OSI Model Deep Dive](./episodes/17-osi-model/) ✓
 - **Episode 18**: [TCP vs UDP - The Complete Engineering Deep Dive](./episodes/18-tcp-udp/) ✓
 - **Episode 19**: [REST vs gRPC - The Complete Architecture Masterclass](./episodes/19-rest-grpc/) ✓
+- **Episode 20**: [HTTP, HTTPS & WebSockets](./episodes/20-http-https-websockets/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -823,6 +824,49 @@ Communication Patterns: REST vs gRPC
     ├── gRPC: Browser support requires proxy (gRPC-Web)
     ├── Load Balancing: gRPC needs L7, HTTP/2 persistent connections
     └── Debugging: gRPC requires deserialization tools
+```
+
+## Episode 20: HTTP, HTTPS & WebSockets
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/20-http-https-websockets/) | [View Presentation](./episodes/20-http-https-websockets/presentation/)**
+
+### What You'll Learn:
+- How HTTP works as a stateless request-response protocol, and its evolution from 0.9 to 1.1 (Keep-Alive)
+- How HTTPS wraps HTTP in a TLS tunnel with handshakes and certificates
+- Why HTTP struggles with real-time apps, and the short/long polling hacks
+- The WebSocket upgrade handshake, frames, opcodes, ping/pong heartbeats, and masking
+- Scaling WebSockets with Redis Pub/Sub, load balancer tuning, and WSS
+
+### Key Concepts Covered:
+```
+HTTP, HTTPS & WebSockets
+├── HTTP Fundamentals
+│   ├── Client-server request/response, stateless (cookies/tokens on top)
+│   ├── Evolution: 0.9 (1991, GET only) → 1.0 (1996, headers) → 1.1 (1997, Keep-Alive)
+│   ├── Request: start line, headers, optional body (ASCII in HTTP/1.x)
+│   └── Status codes: 2xx success, 3xx redirect, 4xx client, 5xx server
+├── HTTPS
+│   ├── HTTP inside a TLS tunnel (PKI)
+│   └── Client Hello → Server Hello + Cert → Key Exchange → Encrypted
+├── Real-Time Problem
+│   ├── Unidirectional, header overhead (500B-2KB), half-duplex
+│   └── Hacks: Short polling (wasteful), Long polling (memory-heavy)
+├── WebSockets (RFC 6455, 2011)
+│   ├── Upgrade: Connection/Upgrade headers → 101 Switching Protocols
+│   ├── Sec-WebSocket-Key + magic GUID → SHA-1 → base64 = Accept
+│   ├── Frames: FIN, opcode, mask bit, payload length (2-byte min)
+│   ├── Opcodes: 0x1 text, 0x2 binary, 0x8 close, 0x9 ping, 0xA pong
+│   ├── Heartbeats: ping/pong vs LB/firewall idle timeouts
+│   └── Masking: client→server XOR key, prevents proxy cache poisoning
+├── Scaling
+│   ├── Stateful connections = isolated servers
+│   ├── Redis Pub/Sub backplane (Cluster/Sentinel for HA)
+│   ├── LB: sticky sessions (Socket.IO), long timeouts, L4 vs L7 TLS
+│   └── Always WSS (443): security, firewall pass-through, mixed content
+└── Future
+    ├── HTTP/2: RFC 8441 WebSocket over a single stream
+    ├── HTTP/3 (QUIC/UDP): no head-of-line blocking
+    └── WebTransport: reliable streams + unreliable datagrams
 ```
 
 ## Contributing
