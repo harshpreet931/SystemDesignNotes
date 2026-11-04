@@ -1,0 +1,14 @@
+{
+ "no cache": {
+  "sent": 50,
+  "allowed": 9,
+  "input_tokens_processed": 1800450,
+  "counted_toward_limit": 1800450
+ },
+ "with cache": {
+  "sent": 50,
+  "allowed": 50,
+  "input_tokens_processed": 10002500,
+  "counted_toward_limit": 202500
+ }
+}

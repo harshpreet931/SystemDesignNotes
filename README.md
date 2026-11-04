@@ -37,6 +37,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 26**: [Message Queues - Queues vs Streams](./episodes/26-message-queues/) ✓
 - **Episode 27**: [Designing REST APIs](./episodes/27-rest-api-design/) ✓
 - **Episode 28**: [Webhooks & Push Notifications](./episodes/28-webhooks-push-notifications/) ✓
+- **Episode 29**: [Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window](./episodes/29-rate-limiting/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -1213,6 +1214,36 @@ Event-Driven Communication
     ├── Device token = mailing address (permission → token → your DB)
     ├── One persistent TCP connection + heartbeats per phone
     └── Offline: APNs keeps latest, FCM queues 100, collapse_key, prune on 410
+```
+
+## Episode 29: Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/29-rate-limiting/) | [View Presentation](./episodes/29-rate-limiting/presentation/) | [Run the Practical](./episodes/29-rate-limiting/practical/)**
+
+### What You'll Learn:
+- What a rate limiter decides per request (allow, 429, or queue) and the accuracy / burst / memory trade-off
+- How fixed window, sliding log, sliding window counter, token bucket, and leaky bucket (meter vs queue) work
+- What each one actually let through under the same attack on real Redis (fixed window: 200 in 0.102 s against a 100/min limit)
+- Why distributed limiters break under race conditions (20 gateways let 1,000 of 1,000 through) and how one Lua script fixes it
+- How LLM APIs limit tokens per minute, plus GCRA and concurrency limits
+
+### Key Concepts Covered:
+```
+Rate Limiting (running example: 100 requests/min)
+├── The Decision: key (API key/user/IP/route) → allow | 429 | queue
+├── Algorithms (measured: most let through in any 60 s)
+│   ├── Fixed Window: 1 counter, 2x at boundary (200)
+│   ├── Sliding Log: exact (100), 8 GB vs 16 MB memory
+│   ├── Sliding Window Counter: 2 counters, 0.003% error at Cloudflare (199)
+│   ├── Token Bucket: C + r × W burst bound (199)
+│   └── Leaky Bucket: meter = token bucket mirror (199) | queue = smooth, 60 s wait
+├── Distributed Limiting
+│   ├── Read → compute → write race: 2 GW = 196, 20 GW = 1,000
+│   └── Fix: one atomic Lua script + Redis TIME (exactly 100)
+└── Beyond Requests
+    ├── LLM APIs: RPM / ITPM / OTPM, cache → 50 of 50 vs 9
+    ├── GCRA: one timestamp per key
+    └── Concurrency limits: Little's law L = λ × W
 ```
 
 ## Contributing

@@ -1,0 +1,56 @@
+[
+ {
+  "alg": "fixed window",
+  "burst_allowed": 200,
+  "burst_span_s": 0.105,
+  "max_rolling_60s": 200,
+  "max_wait_s": 0.0,
+  "total_allowed": 221,
+  "total_requests": 820
+ },
+ {
+  "alg": "sliding log",
+  "burst_allowed": 100,
+  "burst_span_s": 0.014,
+  "max_rolling_60s": 100,
+  "max_wait_s": 0.0,
+  "total_allowed": 121,
+  "total_requests": 820
+ },
+ {
+  "alg": "sliding counter",
+  "burst_allowed": 100,
+  "burst_span_s": 0.014,
+  "max_rolling_60s": 199,
+  "max_wait_s": 0.0,
+  "total_allowed": 203,
+  "total_requests": 820
+ },
+ {
+  "alg": "token bucket",
+  "burst_allowed": 100,
+  "burst_span_s": 0.014,
+  "max_rolling_60s": 199,
+  "max_wait_s": 0.0,
+  "total_allowed": 203,
+  "total_requests": 820
+ },
+ {
+  "alg": "leaky meter",
+  "burst_allowed": 100,
+  "burst_span_s": 0.014,
+  "max_rolling_60s": 199,
+  "max_wait_s": 0.0,
+  "total_allowed": 203,
+  "total_requests": 820
+ },
+ {
+  "alg": "leaky queue",
+  "burst_allowed": 101,
+  "burst_span_s": 0.097,
+  "max_rolling_60s": 101,
+  "max_wait_s": 59.97,
+  "total_allowed": 204,
+  "total_requests": 820
+ }
+]

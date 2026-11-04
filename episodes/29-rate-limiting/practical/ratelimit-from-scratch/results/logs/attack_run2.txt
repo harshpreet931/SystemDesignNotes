@@ -1,0 +1,12 @@
+run e9558e14: waiting 13.6 s for the next minute boundary...
+bursts sent, now pacing at 10/s for 62 s...
+
+limit 100/min. 200 requests in the 0.1 s around the minute mark, then 10/s.
+
+algorithm         allowed in the 0.1 s burst  most in any 60 s  longest wait
+fixed window              200 in 0.105 s               200          0.0s
+sliding log               100 in 0.014 s               100          0.0s
+sliding counter           100 in 0.014 s               199          0.0s
+token bucket              100 in 0.014 s               199          0.0s
+leaky meter               100 in 0.014 s               199          0.0s
+leaky queue               101 in 0.097 s               101         60.0s

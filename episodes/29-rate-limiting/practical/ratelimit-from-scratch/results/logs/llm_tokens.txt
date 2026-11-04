@@ -1,0 +1,2 @@
+no cache  :  9 of 50 requests allowed, 1,800,450 input tokens processed, 1,800,450 counted toward the limit
+with cache: 50 of 50 requests allowed, 10,002,500 input tokens processed, 202,500 counted toward the limit

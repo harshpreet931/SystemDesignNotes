@@ -1,0 +1,9 @@
+bucket 100 tokens, 1000 requests, 5 trials each. median admitted:
+
+gateways    naive    lua  right answer
+       1      100    100   ≤ 100
+       2      196    100   ≤ 100
+       5      344    100   ≤ 100
+      10      605    100   ≤ 100
+      20     1000    100   ≤ 100
+      50     1000    100   ≤ 100
