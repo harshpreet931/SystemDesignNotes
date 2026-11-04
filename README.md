@@ -5,7 +5,7 @@
 **A free system design course with a YouTube video, deep-dive notes, and slides for every topic, plus runnable labs that test the claims on real infrastructure.**
 
 [![YouTube](https://img.shields.io/badge/YouTube-@ThatNotesGuy-red?logo=youtube&logoColor=white)](http://youtube.com/@ThatNotesGuy)
-[![Episodes](https://img.shields.io/badge/episodes-29-blue)](#-the-course)
+[![Episodes](https://img.shields.io/badge/episodes-29-blue)](#the-course)
 [![GitHub stars](https://img.shields.io/github/stars/harshpreet931/SystemDesignNotes?style=social)](https://github.com/harshpreet931/SystemDesignNotes/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -25,12 +25,12 @@ Most system design material repeats the same diagrams and the same numbers nobod
 
 <p align="center"><i>A fixed-window limiter set to 100 requests/min, attacked on real Redis 7.4: <b>200 requests got through in 0.102 seconds</b>.<br>See how sliding windows, token bucket and leaky bucket did under the same attack in <a href="./episodes/29-rate-limiting/">Episode 29</a>.</i></p>
 
-- 🎥 **A video for every topic**: short, visual explanations on [YouTube](http://youtube.com/@ThatNotesGuy)
-- 📖 **Notes you can study from**: diagrams, comparison tables, trade-offs and real-world case studies in every episode
-- 🧪 **Labs you can run**: [rate limiters on Redis](./episodes/29-rate-limiting/practical/), [REST vs gRPC servers](./episodes/19-rest-grpc/practical/), [a mini RAG pipeline](./episodes/10-vector-databases/rag_tuitorial.md)
-- 🖼️ **Every slide included**, free to use for your own revision
+- **A video for every topic**: short, visual explanations on [YouTube](http://youtube.com/@ThatNotesGuy)
+- **Notes you can study from**: diagrams, comparison tables, trade-offs and real-world case studies in every episode
+- **Labs you can run**: [rate limiters on Redis](./episodes/29-rate-limiting/practical/), [REST vs gRPC servers](./episodes/19-rest-grpc/practical/), [a mini RAG pipeline](./episodes/10-vector-databases/rag_tuitorial.md)
+- **Every slide included**, free to use for your own revision
 
-## 🚀 Start here
+## Start here
 
 | If you... | Follow this path |
 |---|---|
@@ -38,70 +38,70 @@ Most system design material repeats the same diagrams and the same numbers nobod
 | **have an interview coming up** | [04](./episodes/04-horizontal-vertical-scaling/) → [07](./episodes/07-caching/) → [14](./episodes/14-sharding-partitioning/) → [16](./episodes/16-cap-theorem/) → [23](./episodes/23-redundancy-high-availability/) → [26](./episodes/26-message-queues/) → [29](./episodes/29-rate-limiting/) |
 | **learn best by building** | [Rate limiters](./episodes/29-rate-limiting/practical/) → [REST vs gRPC](./episodes/19-rest-grpc/practical/) → [Mini RAG](./episodes/10-vector-databases/rag_tuitorial.md) |
 
-## 📚 The Course
+## The Course
 
-### 🧱 Foundations
-
-| # | Topic | Notes | Slides | Lab |
-|:-:|---|:-:|:-:|---|
-| 01 | **System Design Fundamentals** | [📖](./episodes/01-fundamentals/) | [🖼️](./episodes/01-fundamentals/presentation/) |  |
-| 02 | **Monolith vs Microservices** | [📖](./episodes/02-monolith-microservices/) | [🖼️](./episodes/02-monolith-microservices/presentation/) |  |
-| 03 | **Functional vs Non-Functional Requirements** | [📖](./episodes/03-functional-nonfunctional-requirements/) | [🖼️](./episodes/03-functional-nonfunctional-requirements/presentation/) |  |
-| 04 | **Horizontal vs Vertical Scaling** | [📖](./episodes/04-horizontal-vertical-scaling/) | [🖼️](./episodes/04-horizontal-vertical-scaling/presentation/) |  |
-| 05 | **Stateless vs Stateful Systems** | [📖](./episodes/05-stateless-stateful-systems/) | [🖼️](./episodes/05-stateless-stateful-systems/presentation/) |  |
-
-### ⚖️ Scaling & Traffic
+### Foundations
 
 | # | Topic | Notes | Slides | Lab |
 |:-:|---|:-:|:-:|---|
-| 06 | **Load Balancing** | [📖](./episodes/06-load-balancing/) | [🖼️](./episodes/06-load-balancing/presentation/) |  |
-| 07 | **Caching** | [📖](./episodes/07-caching/) | [🖼️](./episodes/07-caching/presentation/) |  |
-| 08 | **CDNs Explained** | [📖](./episodes/08-cdns/) | [🖼️](./episodes/08-cdns/presentation/) |  |
+| 01 | **System Design Fundamentals** | [Notes](./episodes/01-fundamentals/) | [Slides](./episodes/01-fundamentals/presentation/) |  |
+| 02 | **Monolith vs Microservices** | [Notes](./episodes/02-monolith-microservices/) | [Slides](./episodes/02-monolith-microservices/presentation/) |  |
+| 03 | **Functional vs Non-Functional Requirements** | [Notes](./episodes/03-functional-nonfunctional-requirements/) | [Slides](./episodes/03-functional-nonfunctional-requirements/presentation/) |  |
+| 04 | **Horizontal vs Vertical Scaling** | [Notes](./episodes/04-horizontal-vertical-scaling/) | [Slides](./episodes/04-horizontal-vertical-scaling/presentation/) |  |
+| 05 | **Stateless vs Stateful Systems** | [Notes](./episodes/05-stateless-stateful-systems/) | [Slides](./episodes/05-stateless-stateful-systems/presentation/) |  |
 
-### 🗄️ Data & Storage
-
-| # | Topic | Notes | Slides | Lab |
-|:-:|---|:-:|:-:|---|
-| 09 | **Databases Guide** | [📖](./episodes/09-databases/) | [🖼️](./episodes/09-databases/presentation/) |  |
-| 10 | **Vector Databases** | [📖](./episodes/10-vector-databases/) | [🖼️](./episodes/10-vector-databases/presentation/) | [Mini RAG in Python](./episodes/10-vector-databases/rag_tuitorial.md) |
-| 11 | **Keys in DBMS** | [📖](./episodes/11-keys-in-dbms/) | [🖼️](./episodes/11-keys-in-dbms/presentation/) |  |
-| 12 | **Normalization vs Denormalization** | [📖](./episodes/12-normalization-denormalization/) | [🖼️](./episodes/12-normalization-denormalization/presentation/) |  |
-| 13 | **Database Indexing Mastery** | [📖](./episodes/13-indexing/) | [🖼️](./episodes/13-indexing/presentation/) |  |
-| 14 | **Sharding & Partitioning** | [📖](./episodes/14-sharding-partitioning/) | [🖼️](./episodes/14-sharding-partitioning/presentation/) |  |
-| 15 | **Database Replication & Leader Election** | [📖](./episodes/15-replication-leader-election/) | [🖼️](./episodes/15-replication-leader-election/presentation/) |  |
-| 16 | **CAP Theorem is Not Enough** | [📖](./episodes/16-cap-theorem/) | [🖼️](./episodes/16-cap-theorem/presentation/) |  |
-
-### 🌐 Networking & Protocols
+### Scaling & Traffic
 
 | # | Topic | Notes | Slides | Lab |
 |:-:|---|:-:|:-:|---|
-| 17 | **OSI Model Deep Dive** | [📖](./episodes/17-osi-model/) | [🖼️](./episodes/17-osi-model/presentation/) |  |
-| 18 | **TCP vs UDP - The Complete Engineering Deep Dive** | [📖](./episodes/18-tcp-udp/) | [🖼️](./episodes/18-tcp-udp/presentation/) |  |
-| 19 | **REST vs gRPC - The Complete Architecture Masterclass** | [📖](./episodes/19-rest-grpc/) | [🖼️](./episodes/19-rest-grpc/presentation/) | [REST & gRPC servers in Node](./episodes/19-rest-grpc/practical/) |
-| 20 | **HTTP, HTTPS & WebSockets** | [📖](./episodes/20-http-https-websockets/) | [🖼️](./episodes/20-http-https-websockets/presentation/) |  |
-| 21 | **DNS (Domain Name System)** | [📖](./episodes/21-dns/) | [🖼️](./episodes/21-dns/presentation/) |  |
-| 22 | **Network Latency, Bandwidth & Throughput** | [📖](./episodes/22-latency-bandwidth-throughput/) | [🖼️](./episodes/22-latency-bandwidth-throughput/presentation/) |  |
+| 06 | **Load Balancing** | [Notes](./episodes/06-load-balancing/) | [Slides](./episodes/06-load-balancing/presentation/) |  |
+| 07 | **Caching** | [Notes](./episodes/07-caching/) | [Slides](./episodes/07-caching/presentation/) |  |
+| 08 | **CDNs Explained** | [Notes](./episodes/08-cdns/) | [Slides](./episodes/08-cdns/presentation/) |  |
 
-### 🛡️ Reliability & Availability
+### Data & Storage
 
 | # | Topic | Notes | Slides | Lab |
 |:-:|---|:-:|:-:|---|
-| 23 | **Redundancy & High Availability** | [📖](./episodes/23-redundancy-high-availability/) | [🖼️](./episodes/23-redundancy-high-availability/presentation/) |  |
-| 24 | **Replication Strategies - Zero Data Loss vs Insane Speed** | [📖](./episodes/24-replication-strategies/) | [🖼️](./episodes/24-replication-strategies/presentation/) |  |
-| 25 | **Failover Mechanisms in System Design** | [📖](./episodes/25-failover-mechanisms/) | [🖼️](./episodes/25-failover-mechanisms/presentation/) |  |
+| 09 | **Databases Guide** | [Notes](./episodes/09-databases/) | [Slides](./episodes/09-databases/presentation/) |  |
+| 10 | **Vector Databases** | [Notes](./episodes/10-vector-databases/) | [Slides](./episodes/10-vector-databases/presentation/) | [Mini RAG in Python](./episodes/10-vector-databases/rag_tuitorial.md) |
+| 11 | **Keys in DBMS** | [Notes](./episodes/11-keys-in-dbms/) | [Slides](./episodes/11-keys-in-dbms/presentation/) |  |
+| 12 | **Normalization vs Denormalization** | [Notes](./episodes/12-normalization-denormalization/) | [Slides](./episodes/12-normalization-denormalization/presentation/) |  |
+| 13 | **Database Indexing Mastery** | [Notes](./episodes/13-indexing/) | [Slides](./episodes/13-indexing/presentation/) |  |
+| 14 | **Sharding & Partitioning** | [Notes](./episodes/14-sharding-partitioning/) | [Slides](./episodes/14-sharding-partitioning/presentation/) |  |
+| 15 | **Database Replication & Leader Election** | [Notes](./episodes/15-replication-leader-election/) | [Slides](./episodes/15-replication-leader-election/presentation/) |  |
+| 16 | **CAP Theorem is Not Enough** | [Notes](./episodes/16-cap-theorem/) | [Slides](./episodes/16-cap-theorem/presentation/) |  |
 
-### 📨 Communication & APIs
+### Networking & Protocols
 
 | # | Topic | Notes | Slides | Lab |
 |:-:|---|:-:|:-:|---|
-| 26 | **Message Queues - Queues vs Streams** | [📖](./episodes/26-message-queues/) | [🖼️](./episodes/26-message-queues/presentation/) |  |
-| 27 | **Designing REST APIs** | [📖](./episodes/27-rest-api-design/) | [🖼️](./episodes/27-rest-api-design/presentation/) |  |
-| 28 | **Webhooks & Push Notifications** | [📖](./episodes/28-webhooks-push-notifications/) | [🖼️](./episodes/28-webhooks-push-notifications/presentation/) |  |
-| 29 | **Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window** | [📖](./episodes/29-rate-limiting/) | [🖼️](./episodes/29-rate-limiting/presentation/) | [5 rate limiters on real Redis](./episodes/29-rate-limiting/practical/) |
+| 17 | **OSI Model Deep Dive** | [Notes](./episodes/17-osi-model/) | [Slides](./episodes/17-osi-model/presentation/) |  |
+| 18 | **TCP vs UDP - The Complete Engineering Deep Dive** | [Notes](./episodes/18-tcp-udp/) | [Slides](./episodes/18-tcp-udp/presentation/) |  |
+| 19 | **REST vs gRPC - The Complete Architecture Masterclass** | [Notes](./episodes/19-rest-grpc/) | [Slides](./episodes/19-rest-grpc/presentation/) | [REST & gRPC servers in Node](./episodes/19-rest-grpc/practical/) |
+| 20 | **HTTP, HTTPS & WebSockets** | [Notes](./episodes/20-http-https-websockets/) | [Slides](./episodes/20-http-https-websockets/presentation/) |  |
+| 21 | **DNS (Domain Name System)** | [Notes](./episodes/21-dns/) | [Slides](./episodes/21-dns/presentation/) |  |
+| 22 | **Network Latency, Bandwidth & Throughput** | [Notes](./episodes/22-latency-bandwidth-throughput/) | [Slides](./episodes/22-latency-bandwidth-throughput/presentation/) |  |
 
-New episodes land regularly. **⭐ Star the repo** to follow along.
+### Reliability & Availability
 
-## 🔍 Episode Summaries
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 23 | **Redundancy & High Availability** | [Notes](./episodes/23-redundancy-high-availability/) | [Slides](./episodes/23-redundancy-high-availability/presentation/) |  |
+| 24 | **Replication Strategies - Zero Data Loss vs Insane Speed** | [Notes](./episodes/24-replication-strategies/) | [Slides](./episodes/24-replication-strategies/presentation/) |  |
+| 25 | **Failover Mechanisms in System Design** | [Notes](./episodes/25-failover-mechanisms/) | [Slides](./episodes/25-failover-mechanisms/presentation/) |  |
+
+### Communication & APIs
+
+| # | Topic | Notes | Slides | Lab |
+|:-:|---|:-:|:-:|---|
+| 26 | **Message Queues - Queues vs Streams** | [Notes](./episodes/26-message-queues/) | [Slides](./episodes/26-message-queues/presentation/) |  |
+| 27 | **Designing REST APIs** | [Notes](./episodes/27-rest-api-design/) | [Slides](./episodes/27-rest-api-design/presentation/) |  |
+| 28 | **Webhooks & Push Notifications** | [Notes](./episodes/28-webhooks-push-notifications/) | [Slides](./episodes/28-webhooks-push-notifications/presentation/) |  |
+| 29 | **Rate Limiting - Token Bucket vs Leaky Bucket vs Sliding Window** | [Notes](./episodes/29-rate-limiting/) | [Slides](./episodes/29-rate-limiting/presentation/) | [5 rate limiters on real Redis](./episodes/29-rate-limiting/practical/) |
+
+New episodes land regularly. **Star the repo** to follow along.
+
+## Episode Summaries
 
 Expand any episode to see what it covers before you dive in.
 
@@ -1382,7 +1382,7 @@ We love contributions! Here's how you can help make this course even better:
 
 ## Follow the Journey
 
-If these notes helped you, **⭐ star the repo**. It is the best way to get new episodes in your feed and helps other engineers find it.
+If these notes helped you, **star the repo**. It is the best way to get new episodes in your feed and helps other engineers find it.
 
 
 - **YouTube**: [Subscribe for new episodes](http://youtube.com/@ThatNotesGuy)
