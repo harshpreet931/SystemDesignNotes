@@ -36,6 +36,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 25**: [Failover Mechanisms in System Design](./episodes/25-failover-mechanisms/) ✓
 - **Episode 26**: [Message Queues - Queues vs Streams](./episodes/26-message-queues/) ✓
 - **Episode 27**: [Designing REST APIs](./episodes/27-rest-api-design/) ✓
+- **Episode 28**: [Webhooks & Push Notifications](./episodes/28-webhooks-push-notifications/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -1182,6 +1183,36 @@ REST API Design
     ├── OpenAPI Specification (YAML/JSON)
     ├── Swagger UI: interactive "Try it out" docs
     └── Contract-first: parallel frontend/backend, generated SDKs
+```
+
+## Episode 28: Webhooks & Push Notifications
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/28-webhooks-push-notifications/) | [View Presentation](./episodes/28-webhooks-push-notifications/presentation/)**
+
+### What You'll Learn:
+- Why polling wastes resources and adds delay, and how webhooks ("reverse APIs") push events instead
+- When to use REST APIs vs webhooks vs WebSockets
+- Securing webhooks with HTTPS, HMAC signatures, timestamp checks, and idempotency, plus a Node.js receiver
+- How push notifications reach devices through APNs and FCM using device tokens and one persistent OS connection
+- Offline delivery: APNs coalescing, FCM queuing, collapse keys, the 4 KB payload limit, and token pruning
+
+### Key Concepts Covered:
+```
+Event-Driven Communication
+├── The Problem: Polling
+│   ├── Pull model: constant "anything new?" requests
+│   ├── 5 s polling = 17,000+ requests/day, mostly empty
+│   └── Built-in delay until the next check
+├── Webhooks (Server-to-Server)
+│   ├── "Reverse API": provider POSTs JSON to your URL
+│   ├── vs REST (pull, CRUD) vs WebSockets (bidirectional)
+│   ├── Security: HTTPS, HMAC, timestamps, idempotency
+│   └── Receiver: timingSafeEqual, return 2xx fast, process async
+└── Push Notifications (Server-to-Device)
+    ├── APNs (HTTP/2, .p8 tokens) & FCM (cross-platform, proxies to APNs)
+    ├── Device token = mailing address (permission → token → your DB)
+    ├── One persistent TCP connection + heartbeats per phone
+    └── Offline: APNs keeps latest, FCM queues 100, collapse_key, prune on 410
 ```
 
 ## Contributing
