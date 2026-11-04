@@ -34,6 +34,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 23**: [Redundancy & High Availability](./episodes/23-redundancy-high-availability/) ✓
 - **Episode 24**: [Replication Strategies - Zero Data Loss vs Insane Speed](./episodes/24-replication-strategies/) ✓
 - **Episode 25**: [Failover Mechanisms in System Design](./episodes/25-failover-mechanisms/) ✓
+- **Episode 26**: [Message Queues - Queues vs Streams](./episodes/26-message-queues/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -1079,6 +1080,50 @@ Failover: The System's Ultimate Safety Net
     ├── Database failover: Sync (RPO 0) vs Async (faster, some loss)
     ├── AWS ELB: Routes away from unhealthy AZs
     └── Netflix Chaos Monkey: Kills prod servers to prove resilience
+```
+
+## Episode 26: Message Queues
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/26-message-queues/) | [View Presentation](./episodes/26-message-queues/presentation/)**
+
+### What You'll Learn:
+- The difference between queues (commands, destructive reads) and streams (events, immutable logs)
+- How RabbitMQ routes messages with exchanges, bindings, and routing keys (smart broker, dumb consumer)
+- How Kafka scales with partitions, sequential I/O, consumer groups, offsets, and replayability
+- How Amazon SQS works with long polling, visibility timeouts, and its per-request cost model
+- Delivery guarantees (at-most-once, at-least-once, exactly-once) and why consumers must be idempotent
+
+### Key Concepts Covered:
+```
+Message Queues: Queues vs Streams
+├── Core Distinction
+│   ├── Queues (RabbitMQ, SQS): Commands, destructive reads, stateful broker
+│   ├── Streams (Kafka): Events, immutable log, consumer-tracked offsets
+│   └── Analogy: Kitchen ticket wheel vs security camera ledger
+├── RabbitMQ
+│   ├── Smart Broker / Dumb Consumer, AMQP, push-based
+│   ├── Producers -> Exchanges -> Bindings -> Queues
+│   ├── Exchange types: Direct, Fanout, Topic, Headers
+│   └── ACKs + requeue on crash; huge backlogs page to disk
+├── Apache Kafka
+│   ├── Dumb Broker / Smart Consumer, pull-based
+│   ├── Partitions: unit of parallelism and ordering
+│   ├── Sequential I/O + Zero-Copy -> 1M+ msg/sec
+│   └── Consumer groups + offsets -> replayability
+├── Amazon SQS
+│   ├── Fully managed, HTTP long polling
+│   ├── Visibility timeout for crash recovery
+│   ├── Standard (best-effort) vs FIFO (ordered, 3,000 msg/sec batched)
+│   └── Cost trap: billed per request
+├── Delivery Semantics
+│   ├── At-most-once: may drop, no duplicates
+│   ├── At-least-once: no drops, duplicates guaranteed (industry standard)
+│   ├── Exactly-once: Kafka-to-Kafka only (producer IDs, sequence numbers)
+│   └── Idempotent consumers: unique event ID + dedup check
+└── Architecture Decisions
+    ├── Ephemeral task -> Queue | Permanent fact -> Stream
+    ├── Understand the cost model, not just the price
+    └── Hybrid: Kafka backbone + SQS/RabbitMQ worker queues
 ```
 
 ## Contributing
