@@ -29,6 +29,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 18**: [TCP vs UDP - The Complete Engineering Deep Dive](./episodes/18-tcp-udp/) ✓
 - **Episode 19**: [REST vs gRPC - The Complete Architecture Masterclass](./episodes/19-rest-grpc/) ✓
 - **Episode 20**: [HTTP, HTTPS & WebSockets](./episodes/20-http-https-websockets/) ✓
+- **Episode 21**: [DNS (Domain Name System)](./episodes/21-dns/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -867,6 +868,52 @@ HTTP, HTTPS & WebSockets
     ├── HTTP/2: RFC 8441 WebSocket over a single stream
     ├── HTTP/3 (QUIC/UDP): no head-of-line blocking
     └── WebTransport: reliable streams + unreliable datagrams
+```
+
+## Episode 21: DNS (Domain Name System)
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/21-dns/) | [View Presentation](./episodes/21-dns/presentation/)**
+
+### What You'll Learn:
+- Why DNS replaced HOSTS.TXT, and how the hierarchical namespace (root, TLD, second-level, subdomain) delegates authority
+- The four DNS server types and the step-by-step lookup flow, recursive vs iterative queries
+- Why DNS runs on UDP/53, when it falls back to TCP, and the 12-byte header
+- Record types (A, AAAA, CNAME, ALIAS, PTR), TTL, caching layers, propagation, and zone transfers
+- DNS attacks (cache poisoning, hijacking, amplification, tunneling) and defenses: DNSSEC, DoH, DoT
+
+### Key Concepts Covered:
+```
+DNS (Domain Name System)
+├── History
+│   ├── ARPANET HOSTS.TXT managed by SRI (didn't scale)
+│   └── Paul Mockapetris, 1983 (RFC 1034/1035): distributed database
+├── Hierarchy (read right to left)
+│   ├── Root (.) → TLD (.com) → Second-level (google) → Subdomain (www)
+│   └── FQDN: trailing dot = root
+├── Server Types
+│   ├── Recursive Resolver: the librarian (ISP, 1.1.1.1, 8.8.8.8)
+│   ├── Root: the index → TLD: aisle manager
+│   └── Authoritative: source of truth
+├── Resolution
+│   ├── Browser cache → OS cache → hosts file → resolver
+│   ├── Resolver → Root → TLD → Authoritative → cache → client
+│   └── Recursive (client→resolver, RD bit) vs Iterative (referrals)
+├── Protocol
+│   ├── UDP port 53 (speed), 512-byte historical limit
+│   ├── TC bit → retry over TCP 53; zone transfers always TCP
+│   └── Header: ID, QR, Opcode, AA, TC, RD, RA, RCODE (3 = NXDOMAIN)
+├── Records
+│   ├── A (IPv4), AAAA (IPv6), round-robin load balancing
+│   ├── CNAME (not at apex, extra lookup) vs ALIAS/ANAME
+│   └── PTR reverse lookup (in-addr.arpa, email checks)
+├── Caching & TTL
+│   ├── Layers: Browser (~1 min) → OS stub → ISP resolver (full TTL)
+│   └── Propagation = waiting for caches to expire
+├── Zones: primary/secondary, AXFR (full) vs IXFR (incremental)
+└── Security
+    ├── Attacks: cache poisoning (Kaminsky), hijacking, amplification, tunneling
+    ├── DNSSEC: RRSIG, DNSKEY, DS → chain of trust
+    └── DoH (443) / DoT (853): encrypted lookups (privacy)
 ```
 
 ## Contributing
