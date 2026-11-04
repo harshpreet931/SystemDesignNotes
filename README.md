@@ -32,6 +32,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 21**: [DNS (Domain Name System)](./episodes/21-dns/) ✓
 - **Episode 22**: [Network Latency, Bandwidth & Throughput](./episodes/22-latency-bandwidth-throughput/) ✓
 - **Episode 23**: [Redundancy & High Availability](./episodes/23-redundancy-high-availability/) ✓
+- **Episode 24**: [Replication Strategies - Zero Data Loss vs Insane Speed](./episodes/24-replication-strategies/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -994,6 +995,45 @@ High Availability = Continuity via Redundancy
     ├── HA: local redundancy, survives server crashes
     └── DR: geographic separation, survives site outages
         └── Geo-redundancy: Active-Active across regions
+```
+
+## Episode 24: Replication Strategies - Zero Data Loss vs Insane Speed
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/24-replication-strategies/) | [View Presentation](./episodes/24-replication-strategies/presentation/)**
+
+### What You'll Learn:
+- Why we replicate: high availability, read scaling, disaster recovery, and lower latency
+- Synchronous replication: zero RPO, latency cost, the ~300 km distance limit, and blocked writes
+- Asynchronous replication: fire and forget, replication lag, and the PostgreSQL WAL problem
+- Semi-synchronous replication and the risk of silently falling back to async
+- Quorum/consensus (Raft, Paxos, CockroachDB) and picking a strategy per use case
+
+### Key Concepts Covered:
+```
+Replication Strategies: When Does the Primary Say "Success"?
+├── Why Replicate
+│   ├── High Availability: Survive hardware failures
+│   ├── Scalability: Offload reads to replicas
+│   ├── Disaster Recovery: Geographically distant copies
+│   └── Latency Reduction: Data closer to users
+├── Synchronous Replication
+│   ├── Atomic commit: Primary AND replica acknowledge
+│   ├── RPO = 0, strong consistency
+│   ├── Cost: RTT + replica I/O, ~300 km limit
+│   └── Risk: Replica down = writes blocked
+├── Asynchronous Replication
+│   ├── Fire and forget: Ack immediately, ship later
+│   ├── High throughput, eventual consistency
+│   └── Danger zone: Replication lag, RPO > 0, WAL recycling
+├── Semi-Synchronous
+│   ├── Ack from at least one replica (memory ack)
+│   └── Adaptive fallback to async = data-loss window
+├── Quorum & Consensus
+│   ├── Wait for a majority (e.g., 3 of 5) - Raft/Paxos
+│   └── Zero data loss + tolerates minority failures (CockroachDB)
+└── Use Cases
+    ├── Sync: Banking, healthcare, compliance
+    └── Async: Cross-continent DR, analytics, feeds, AdTech
 ```
 
 ## Contributing
