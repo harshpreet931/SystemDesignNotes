@@ -31,6 +31,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 20**: [HTTP, HTTPS & WebSockets](./episodes/20-http-https-websockets/) ✓
 - **Episode 21**: [DNS (Domain Name System)](./episodes/21-dns/) ✓
 - **Episode 22**: [Network Latency, Bandwidth & Throughput](./episodes/22-latency-bandwidth-throughput/) ✓
+- **Episode 23**: [Redundancy & High Availability](./episodes/23-redundancy-high-availability/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -955,6 +956,44 @@ Network Performance Metrics
     ├── High throughput? Batching + Parallelism
     ├── Chatty? Keep-Alive / persistent connections
     └── Huge payload? Compression / Protobuf
+```
+
+## Episode 23: Redundancy & High Availability
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/23-redundancy-high-availability/) | [View Presentation](./episodes/23-redundancy-high-availability/presentation/)**
+
+### What You'll Learn:
+- What High Availability means, the "nines" (99.9% ≈ 8h 46m vs 99.999% ≈ 5m 16s downtime/year), and redundancy to eliminate SPOFs
+- Active-Passive ("spare tire"): heartbeats, failover with a 30-60s downtime window, and failback
+- Active-Active ("multi-lane highway"): load balancing, health checks, near-instant failover
+- Trade-offs in utilization, scalability, complexity, and cost, plus the multi-master write-conflict problem
+- Database choices (PostgreSQL/MySQL vs Cassandra/Aerospike) and HA vs Disaster Recovery (geo-redundancy)
+
+### Key Concepts Covered:
+```
+High Availability = Continuity via Redundancy
+├── Active-Passive ("Spare Tire")
+│   ├── Primary handles 100% traffic, standby idle
+│   ├── Heartbeats → failover (30-60s downtime)
+│   ├── Failback: often manual
+│   └── ~50% utilization, single-node bottleneck
+├── Active-Active ("Multi-Lane Highway")
+│   ├── All nodes serve traffic via load balancer
+│   ├── Round Robin / Weighted / Random
+│   ├── Health checks → near-instant failover
+│   └── ~100% utilization, scales horizontally
+├── Trade-offs
+│   ├── Complexity: distributed state management
+│   ├── Cost: idle hardware vs licensing + ops skills
+│   └── Data consistency: write conflicts, bi-directional sync
+│       └── Conflict resolution: Last Write Wins, Vector Clocks
+├── Database Architectures
+│   ├── Active-Passive: PostgreSQL, MySQL (ACID, no conflicts)
+│   └── Active-Active: Cassandra, Aerospike (XDR, geo-distribution)
+└── HA vs DR
+    ├── HA: local redundancy, survives server crashes
+    └── DR: geographic separation, survives site outages
+        └── Geo-redundancy: Active-Active across regions
 ```
 
 ## Contributing
