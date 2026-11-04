@@ -33,6 +33,7 @@ Welcome to the most comprehensive, hands on system design course that takes you 
 - **Episode 22**: [Network Latency, Bandwidth & Throughput](./episodes/22-latency-bandwidth-throughput/) ✓
 - **Episode 23**: [Redundancy & High Availability](./episodes/23-redundancy-high-availability/) ✓
 - **Episode 24**: [Replication Strategies - Zero Data Loss vs Insane Speed](./episodes/24-replication-strategies/) ✓
+- **Episode 25**: [Failover Mechanisms in System Design](./episodes/25-failover-mechanisms/) ✓
 - So on...
 
 ## Episode 1: System Design Fundamentals
@@ -1034,6 +1035,50 @@ Replication Strategies: When Does the Primary Say "Success"?
 └── Use Cases
     ├── Sync: Banking, healthcare, compliance
     └── Async: Cross-continent DR, analytics, feeds, AdTech
+```
+
+## Episode 25: Failover Mechanisms in System Design
+
+**[Watch the Video](http://youtube.com/@ThatNotesGuy) | [Read the Notes](./episodes/25-failover-mechanisms/) | [View Presentation](./episodes/25-failover-mechanisms/presentation/)**
+
+### What You'll Learn:
+- What failover is, five nines (99.999%), and planned vs unplanned failures
+- RTO and RPO, and eliminating single points of failure at every layer
+- Cold, warm, and hot standby; active-passive vs active-active and split-brain
+- Failover triggers: heartbeats, load balancer health checks, SNMP traps, DNS switching
+- Microservice resiliency (circuit breakers, bulkheads, retries with backoff), database failover, AWS ELB, and Netflix Chaos Monkey
+
+### Key Concepts Covered:
+```
+Failover: The System's Ultimate Safety Net
+├── Fundamentals
+│   ├── Automatic switch from failed to standby component
+│   ├── Five nines: 99.999% = < 5 min downtime/year
+│   └── Planned (upgrades, migrations) vs Unplanned (power, hardware, network)
+├── Recovery Objectives
+│   ├── RTO: How long can you be down?
+│   └── RPO: How much data can you lose?
+├── High Availability Principles
+│   └── No SPOF: Network, Compute (AZs), Storage (RAID), Database (replicas)
+├── Failover Spectrum
+│   ├── Cold: Powered off, high RTO, lowest cost
+│   ├── Warm: Running, partially synced
+│   └── Hot: Real-time mirror, near-zero RTO, highest cost
+├── Routing Models
+│   ├── Active-Passive: Simple, idle standby
+│   └── Active-Active: Efficient, complex sync, split-brain risk
+├── Triggers
+│   ├── Heartbeat monitoring
+│   ├── Load balancer health checks
+│   └── SNMP traps -> switch DNS / reroute traffic
+├── Microservice Resiliency
+│   ├── Fault isolation & circuit breakers
+│   ├── Retries with exponential backoff
+│   └── Bulkhead isolation (dedicated connection pools)
+└── Real World
+    ├── Database failover: Sync (RPO 0) vs Async (faster, some loss)
+    ├── AWS ELB: Routes away from unhealthy AZs
+    └── Netflix Chaos Monkey: Kills prod servers to prove resilience
 ```
 
 ## Contributing
