@@ -1,6 +1,6 @@
 <div align="center">
 
-# System Design, Measured
+# System Design Notes
 
 **A free system design course with a YouTube video, deep-dive notes, and slides for every topic, plus runnable labs that test the claims on real infrastructure.**
 
